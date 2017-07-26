@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<div class="add">
+<div class="add" id="home-add">
     <div class="leaderboard"></div>
 </div>
 
@@ -51,7 +51,7 @@
 
         $(document).ready(function () {
             _generateResurlts(argument  , 6);
+            $("#home-add").html(GlobalAdd);
         });
-
     </script>
 @endsection

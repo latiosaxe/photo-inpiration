@@ -1,6 +1,15 @@
-var API_FLICKR_KEY = '0c72858bd7b4baffff57ab50e7a2f349';
+var API_FLICKR_KEY = '0c72858bd7b4baffff57ab50e7a2f349',
+    GlobalAdd = '';
 
 $(document).ready(function () {
+    if($(window).width <= 800){
+           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6424442163"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+        // GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8170975977203848" data-ad-slot="9309625804"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+    }else{
+           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6016058684"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+        // GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8170975977203848" data-ad-slot="2220283900"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+    }
+
     $(".site .categories ul li, .site header .relative .popular ul li").on('click', function(){
         _makeSearch($(this).find('span').data('search'));
     });
@@ -42,7 +51,7 @@ var _generateResurlts = function (argumentm, limit) {
 
         $.each(data.photos.photo, function (index, value) {
             if(actual_add_position == (limit_add)){
-                $("#searchResult .result-list").append('<li class="add leaderboard"><span></span></li>');
+                $("#searchResult .result-list").append('<li class="add leaderboard">'+ GlobalAdd +'</li>');
                 actual_add_position = -1;
             }else{
                 $("#searchResult .result-list").append('' +
