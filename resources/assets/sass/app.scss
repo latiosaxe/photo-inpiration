@@ -640,4 +640,28 @@ footer{
             display: none;
         }
     }
+    .site header .relative form{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .site header .relative form input, .site header .relative form button{
+        padding: 5px 10px;
+    }
+    .site .categories ul li span{
+        font-size: 18px;
+    }
+    .site .welcome .vertical-align h2{
+        font-size: 50px;
+        line-height: 110%;
+    }
+    .result-list li{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result-list li{
+        width: 100%; 
+    }
 }

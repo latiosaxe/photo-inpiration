@@ -775,4 +775,38 @@ footer p {
   .site header .relative .popular {
     display: none;
   }
+
+  /* line 643, ../../../resources/assets/sass/app.scss */
+  .site header .relative form {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  /* line 648, ../../../resources/assets/sass/app.scss */
+  .site header .relative form input, .site header .relative form button {
+    padding: 5px 10px;
+  }
+
+  /* line 651, ../../../resources/assets/sass/app.scss */
+  .site .categories ul li span {
+    font-size: 18px;
+  }
+
+  /* line 654, ../../../resources/assets/sass/app.scss */
+  .site .welcome .vertical-align h2 {
+    font-size: 50px;
+    line-height: 110%;
+  }
+
+  /* line 658, ../../../resources/assets/sass/app.scss */
+  .result-list li {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 664, ../../../resources/assets/sass/app.scss */
+  .result-list li {
+    width: 100%;
+  }
 }
