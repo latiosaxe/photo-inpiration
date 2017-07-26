@@ -51,7 +51,7 @@ var _generateResurlts = function (argumentm, limit) {
 
         $.each(data.photos.photo, function (index, value) {
             if(actual_add_position == (limit_add)){
-                $("#searchResult .result-list").append('<li class="add leaderboard">'+ GlobalAdd +'</li>');
+                $("#searchResult .result-list").append('<li class="add leaderboard"><div class="center">'+ GlobalAdd +'</div></li>');
                 actual_add_position = -1;
             }else{
                 $("#searchResult .result-list").append('' +

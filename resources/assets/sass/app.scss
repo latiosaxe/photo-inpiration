@@ -44,6 +44,9 @@ body{
     .center{
         margin: 0 auto;
         display: inline-block;
+        left: 50%;
+        position: relative;
+        @include transform(translateX(-50%));
     }
     .leaderboard{
         height: 90px;
@@ -464,6 +467,13 @@ body{
             display: block;
             padding: 40px 0;
             &.leaderboard{
+                .center{
+                    margin: 0 auto;
+                    display: inline-block;
+                    left: 50%;
+                    position: relative;
+                    @include transform(translateX(-50%));
+                }
                 span{
                     width: 768px;
                     height: 90px;
