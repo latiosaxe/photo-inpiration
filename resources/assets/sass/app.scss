@@ -658,10 +658,26 @@ footer{
     .result-list li{
         width: 50%;
     }
+    .resume-search{
+        padding: 40px 15px;
+        p{
+            line-height: 120%;
+        }
+    }
 }
 
 @media screen and (max-width: 480px) {
     .result-list li{
-        width: 100%; 
+        width: 100%;
+    }
+    footer{
+        .half{
+            float: none;
+            width: 100%;
+            margin-bottom: 20px;
+            a{
+                display: block;
+            }
+        }
     }
 }

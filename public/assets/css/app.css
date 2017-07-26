@@ -803,10 +803,30 @@ footer p {
   .result-list li {
     width: 50%;
   }
+
+  /* line 661, ../../../resources/assets/sass/app.scss */
+  .resume-search {
+    padding: 40px 15px;
+  }
+  /* line 663, ../../../resources/assets/sass/app.scss */
+  .resume-search p {
+    line-height: 120%;
+  }
 }
 @media screen and (max-width: 480px) {
-  /* line 664, ../../../resources/assets/sass/app.scss */
+  /* line 670, ../../../resources/assets/sass/app.scss */
   .result-list li {
     width: 100%;
+  }
+
+  /* line 674, ../../../resources/assets/sass/app.scss */
+  footer .half {
+    float: none;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  /* line 678, ../../../resources/assets/sass/app.scss */
+  footer .half a {
+    display: block;
   }
 }
