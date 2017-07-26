@@ -35,7 +35,9 @@
 </div>
 
 <div class="add" id="home-add">
-    <div class="leaderboard"></div>
+    <div class="center">
+        <div class="leaderboard"></div>
+    </div>
 </div>
 
 <div id="searchResult"></div>

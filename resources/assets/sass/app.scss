@@ -41,6 +41,10 @@ body{
 .add{
     width: 100%;
     padding: 40px 0;
+    .center{
+        margin: 0 auto;
+        display: inline-block;
+    }
     .leaderboard{
         height: 90px;
         width: 978px;
