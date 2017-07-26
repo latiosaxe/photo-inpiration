@@ -15,5 +15,9 @@ Route::get('/', function () {
     return view('site.sections.home');
 });
 
+Route::get('/terms', function () {
+    return view('site.sections.legals');
+});
+
 Route::get('search',              'SearchController@search');
 

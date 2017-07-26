@@ -1,7 +1,7 @@
 @extends('site.master')
 @section('title')Photo inspiration | photography is art @stop
 @section('description')Best website for photography inspiration, photography is art, photography is all @stop
-@section('keywords')photography,inspiration,photo@stop
+@section('keywords')photography,inspiration,photo @stop
 
 @section('content')
 <div class="welcome">
