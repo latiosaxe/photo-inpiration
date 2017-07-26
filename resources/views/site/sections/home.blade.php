@@ -34,8 +34,8 @@
     </div>
 </div>
 
-<div class="add" id="home-add">
-    <div class="center">
+<div class="add">
+    <div class="center" id="home-add">
         <div class="leaderboard"></div>
     </div>
 </div>
