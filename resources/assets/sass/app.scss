@@ -275,6 +275,7 @@ body{
         h3{
             //padding-top: 30px;
             font-size: 30px;
+            line-height: 120%;
             font-family: $font-2;
         }
         ul{
@@ -622,5 +623,21 @@ footer{
     }
     50% {
         transform: scale(1.2, 1);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .site header .relative{
+        padding: 0 15px;
+        .logo{
+            a{
+                h1{
+                    font-size: 18px;
+                }
+            }
+        }
+        .popular{
+            display: none;
+        }
     }
 }

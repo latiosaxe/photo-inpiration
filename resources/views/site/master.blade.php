@@ -24,7 +24,6 @@ if (isset($seo)){
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <meta property="fb:app_id" content="{{env('FB_APP_ID')}}">
     <meta property="og:url" content="{{$seo->canonical}}">
     <meta property="og:site_name" content="Doctor Advisor">
