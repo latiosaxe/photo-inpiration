@@ -18,6 +18,8 @@ if (isset($seo)){
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
+
 
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,6 +40,7 @@ if (isset($seo)){
     <meta name="twitter:description" content="{{$seo->description}}">
     <meta name="twitter:domain" content="{{$seo->domain}}">
 
+    <meta name="author" content="Axel Gonzalez">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -55,9 +58,22 @@ if (isset($seo)){
         <div class="relative">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/logo.png" alt="Photo Inspiration">
-                    <h1>Photography inspiration</h1>
+                    {{--<img src="/assets/images/logo.png" alt="Photo Inspiration">--}}
+                    <h1>Photography Inspiration</h1>
                 </a>
+            </div>
+            <div class="popular">
+                <span>Popular <small>▼</small></span>
+                <?php
+                $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise'];
+                ?>
+                <ul>
+                    @foreach($popular as $item)
+                        <li>
+                            <span data-search="{{ $item }}">{{ $item }}</span>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
             <div class="search">
                 <form  action="/search" method="get">
@@ -69,8 +85,11 @@ if (isset($seo)){
     </header>
     <div class="fake-header"></div>
 
-    @yield('content')
+    <div class="latiosaxe" id="latiosaxe">
+        @yield('content')
 
+
+    </div>
 
     <footer>
         <div class="container">
