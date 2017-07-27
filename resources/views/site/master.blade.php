@@ -50,6 +50,14 @@ if (isset($seo)){
         ga('send', 'pageview');
 
     </script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4124457392679487",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 <body>
 <div class="site">
@@ -108,14 +116,6 @@ if (isset($seo)){
         </div>
     </footer>
 </div>
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-4124457392679487",
-        enable_page_level_ads: true
-    });
-</script>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
 <script src="/assets/scripts/main.js"></script>
 @yield('scripts')
