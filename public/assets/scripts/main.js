@@ -3,10 +3,10 @@ var API_FLICKR_KEY = '0c72858bd7b4baffff57ab50e7a2f349',
 
 $(document).ready(function () {
     if($(window).width <= 800){
-           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6424442163"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6424442163"></ins>';
         // GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8170975977203848" data-ad-slot="9309625804"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
     }else{
-           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6016058684"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
+           GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4124457392679487" data-ad-slot="6016058684"></ins>';
         // GlobalAdd = '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8170975977203848" data-ad-slot="2220283900"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>';
     }
 
@@ -67,7 +67,8 @@ var _generateResurlts = function (argumentm, limit) {
                     '');
             }
             actual_add_position ++;
-        })
+        });
+        (adsbygoogle = window.adsbygoogle || []).push({});
     });
 };
 
