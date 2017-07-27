@@ -40,17 +40,6 @@
     </div>
 </div>
 
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Leaderborad Desktop -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-4124457392679487"
-     data-ad-slot="6016058684"></ins>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <div id="searchResult"></div>
 @endsection
 
