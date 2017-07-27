@@ -18,14 +18,23 @@ $(document).ready(function () {
     $(".site").delegate('.result-list li .photo', 'click', function (event) {
         event.preventDefault();
         _ownerPhoto($(this).data('id'));
-    })
+    });
     $(".site").delegate('.overlay .close', 'click', function (event) {
         event.preventDefault();
         $("#killMePlease").fadeOut(300);
         setTimeout(function () {
             $("#killMePlease").remove();
         }, 350);
-    })
+    });
+
+    $(".GA_SEARCH_EVENT").on('submit', function () {
+        console.log($("#globalInputSearch").val());
+        ga('send', 'event', 'Search', 'Header', $("#globalInputSearch").val());
+    });
+    $(".GA_HOEM_SEARCH_EVENT").on('submit', function () {
+        console.log($("#globalInputSearch").val());
+        ga('send', 'event', 'Search', 'Home', $("#globalInputSearch").val());
+    });
 });
 
 var _generateResurlts = function (argumentm, limit) {
@@ -73,7 +82,6 @@ var _generateResurlts = function (argumentm, limit) {
 };
 
 var _makeSearch = function _makeSearch(argument) {
-    console.log(argument);
     $(".site header .relative form #globalInputSearch").val(argument);
     $(".site header .relative form").submit();
 };
