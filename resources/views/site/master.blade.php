@@ -98,7 +98,12 @@ if (isset($seo)){
                 <p>Created by <a href="https://twitter.com/latiosaxe" target="_blank">@latiosaxe</a></p>
             </div>
             <div class="half">
-                <a href="/terms">Terms and Conditions</a>
+                <p>
+                    <a href="/terms">Terms and Conditions</a>
+                </p>
+                <p>
+                    <a href="/privacy">Privacy policy</a>
+                </p>
             </div>
         </div>
     </footer>
