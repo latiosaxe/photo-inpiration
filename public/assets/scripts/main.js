@@ -28,13 +28,17 @@ $(document).ready(function () {
     });
 
     $(".GA_SEARCH_EVENT").on('submit', function () {
-        console.log($("#globalInputSearch").val());
         ga('send', 'event', 'Search', 'Header', $("#globalInputSearch").val());
     });
     $(".GA_HOEM_SEARCH_EVENT").on('submit', function () {
-        console.log($("#globalInputSearch").val());
         ga('send', 'event', 'Search', 'Home', $("#globalInputSearch").val());
     });
+
+    $("#myTwitter").on('click', function () {
+        ga('send', 'event', 'Click', 'Twitter', '@latiosaxe');
+    });
+
+
 });
 
 var _generateResurlts = function (argumentm, limit) {

@@ -103,7 +103,7 @@ if (isset($seo)){
             <div class="half">
                 <p>All rights reserved</p>
                 <p>This website is possible because of <a href="#" target="_blank">Flickr</a></p>
-                <p>Created by <a href="https://twitter.com/latiosaxe" target="_blank">@latiosaxe</a></p>
+                <p>Created by <a href="https://twitter.com/latiosaxe" id="myTwitter" target="_blank">@latiosaxe</a></p>
             </div>
             <div class="half">
                 <p>
