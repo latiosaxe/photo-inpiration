@@ -11,8 +11,8 @@
             <p>Yep, we just start</p>
             <br><br><br>
             <p class="small">Search for something interesting</p>
-            <form  action="/search" method="get" class="GA_HOEM_SEARCH_EVENT">
-                <input type="text"  name="q" placeholder="Concert..."/>
+            <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
+                <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
                 <button type="submit">Search</button>
             </form>
         </div>

@@ -28,11 +28,12 @@ $(document).ready(function () {
     });
 
     $(".GA_SEARCH_EVENT").on('submit', function () {
-        ga('send', 'event', 'Search', 'Header', $("#globalInputSearch").val().toLowerCase());
+        var argument = $("#globalInputSearch").val();
+        ga('send', 'event', 'Search', 'Header', argument.toLowerCase());
     });
-    $(".GA_HOEM_SEARCH_EVENT").on('submit', function () {
-        ga('send', 'event', 'Search', 'Home', $("#globalInputSearch").val().toLowerCase());
-        console.log( $("#globalInputSearch").val().toLowerCase());
+    $(".GA_HOME_SEARCH_EVENT").on('submit', function () {
+        var argument = $("#homeInputSearch").val();
+        ga('send', 'event', 'Search', 'Home', argument.toLowerCase());
     });
 
     $("#myTwitter").on('click', function () {
