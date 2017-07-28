@@ -834,20 +834,27 @@ footer p {
   .resume-search p {
     line-height: 120%;
   }
+
+  /* line 682, ../../../resources/assets/sass/app.scss */
+  .site .overlay .content {
+    width: 100%;
+    height: 100%;
+    max-width: 700px;
+  }
 }
 @media screen and (max-width: 480px) {
-  /* line 684, ../../../resources/assets/sass/app.scss */
+  /* line 691, ../../../resources/assets/sass/app.scss */
   .result-list li {
     width: 100%;
   }
 
-  /* line 688, ../../../resources/assets/sass/app.scss */
+  /* line 695, ../../../resources/assets/sass/app.scss */
   footer .half {
     float: none;
     width: 100%;
     margin-bottom: 20px;
   }
-  /* line 692, ../../../resources/assets/sass/app.scss */
+  /* line 699, ../../../resources/assets/sass/app.scss */
   footer .half a {
     display: block;
   }

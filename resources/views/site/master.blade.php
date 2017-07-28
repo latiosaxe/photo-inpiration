@@ -84,7 +84,7 @@ if (isset($seo)){
             </div>
             <div class="search">
                 <form  action="/search" method="get" class="GA_SEARCH_EVENT">
-                    <input type="text" id="globalInputSearch" name="q" placeholder="Concert..."/>
+                    <input type="text" id="globalInputSearch" name="q" placeholder="Concert..." required="required"/>
                     <button type="submit">Search</button>
                 </form>
             </div>
