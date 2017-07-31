@@ -19,17 +19,19 @@ if (isset($seo)){
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-
-
+    
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="author" content="Axel Gonzalez">
+
     <meta property="fb:app_id" content="{{env('FB_APP_ID')}}">
     <meta property="og:url" content="{{$seo->canonical}}">
-    <meta property="og:site_name" content="Doctor Advisor">
+    <meta property="og:site_name" content="Photography Inspiration">
     <meta property="og:title" content="{{$seo->title}}">
     <meta property="og:description" content="{{$seo->description}}">
-    <meta property="og:image" content="{{$seo->image}}">
+    <meta property="og:image" content="{{$seo->domain}}{{$seo->image}}">
+    <meta property="og:type"   content="website" />
 
     <meta name="twitter:account_id" content="" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +41,6 @@ if (isset($seo)){
     <meta name="twitter:description" content="{{$seo->description}}">
     <meta name="twitter:domain" content="{{$seo->domain}}">
 
-    <meta name="author" content="Axel Gonzalez">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
