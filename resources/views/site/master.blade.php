@@ -2,7 +2,7 @@
 $_seo = [
     'title'         => 'Photo inspiration | photography is art',
     'description'   => 'Best website for photography inspiration, photography is art, photography is all',
-    'image'         => '/assets/images/site/social-share.jpg',
+    'image'         => '/assets/images/social-share.jpg',
     'domain'        => env('APP_URL'),
     'canonical'     => URL()->current(),
 ];
