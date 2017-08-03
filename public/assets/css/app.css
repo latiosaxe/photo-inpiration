@@ -875,7 +875,7 @@ body {
 /* line 434, ../../../resources/assets/sass/app.scss */
 .color_photo_grid .single .color_block.color_top span {
   float: left;
-  height: 20px;
+  height: 10px;
   width: 12.5%;
   display: inline-block;
   vertical-align: middle;
