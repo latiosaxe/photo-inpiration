@@ -46,6 +46,7 @@ class VoteController extends Controller
 //            }else{
 //                DB::table('photo')->whereId($photoId)->increment('votes');
 //            }
+            
             $status = 200;
         }catch(\Exception $e){
             $data->message = $e->getMessage();

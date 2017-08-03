@@ -22,10 +22,25 @@
     <div class="container">
         <h3>Popular on {{ env('APP_NAME') }}</h3>
         <?php
-        $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise'];
+        $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise', 'bay', 'sky', 'sunset', 'people', 'lake', 'pink'];
+        $random = shuffle_assoc($popular);
+        $result = array_slice($random, 0, 6);
+
+        function shuffle_assoc($list) {
+            if (!is_array($list)) return $list;
+
+            $keys = array_keys($list);
+            shuffle($keys);
+            $random = array();
+            foreach ($keys as $key) {
+                $random[$key] = $list[$key];
+            }
+            return $random;
+        }
+
         ?>
         <ul>
-            @foreach($popular as $item)
+            @foreach($result as $item)
                 <li>
                     <span data-search="{{ $item }}">{{ $item }}</span>
                 </li>
@@ -48,12 +63,13 @@
         var limit_add = 3,
             actual_add_position = 0;
 
-        var homeArguments = ['outside', 'portrait', 'macro', 'landscape', 'street', 'city', 'new'];
+        var homeArguments = ['outside', 'people', 'macro', 'landscape', 'street', 'city', 'new'];
         var argument = homeArguments[Math.floor(Math.random() * homeArguments.length)];
 
         $(document).ready(function () {
             _generateResurlts(argument  , 7);
             $("#home-add").html(GlobalAdd);
+            (adsbygoogle = window.adsbygoogle || []).push({});
         });
     </script>
 @endsection
