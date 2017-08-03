@@ -86,6 +86,13 @@ $(document).ready(function () {
                 },
                 error: function (err){
                     console.log(err.responseText);
+                },
+                done: function () {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': ''
+                        }
+                    });
                 }
             });
             // done(function(data){

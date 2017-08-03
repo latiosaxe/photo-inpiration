@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Vote;
 use App\Photo;
 
+//require_once 'vendor/autoload.php';
+use ColorThief\ColorThief;
+
 class VoteController extends Controller
 {
     public function store(Request $request){
@@ -31,9 +34,13 @@ class VoteController extends Controller
             if ($photo === null) {
 //                $uid = strrev(base_convert(time(),10,26));
 
+                $colors = $this->getImageColor($request->input('photo', ''));
 
-                
-
+                $palette = '';
+                foreach ($colors['palette'] as $single) {
+                    $val = $this->rgb($single);
+                    $palette .= '|'. $val;
+                }
 
                 $photoData = [
                     'uid' => $request->get('photo_id'),
@@ -46,6 +53,8 @@ class VoteController extends Controller
                     'user_nickname' => $request->input('user_nickname', ''),
                     'user_location' => $request->input('user_location', ''),
                     'user_profile' => $request->input('user_profile', ''),
+                    'average_color' => 'rgb('.$colors['domain'][0].', '.$colors['domain'][1].', '.$colors['domain'][2].')',
+                    'palette_color' => $palette,
                 ];
                 $newphoto = Photo::create($photoData);
             }else{
@@ -57,5 +66,24 @@ class VoteController extends Controller
             $data->message = $e->getMessage();
         }
         return response()->json($data, $status);
+    }
+
+    public function rgb($value){
+        return 'rgb('.$value[0].', '.$value[1].', '.$value[2].')';
+    }
+
+    public function getImageColor($image){
+        $content = file_get_contents($image);
+//        dd($content);
+//        $dominantColor = ColorThief::getColor($content);
+
+        $dominantColor = ColorThief::getColor($content);
+        $palette = ColorThief::getPalette($content, 8);
+
+        $data['domain'] = $dominantColor;
+        $data['palette'] = $palette;
+
+        return $data;
+//        dd(  );
     }
 }
