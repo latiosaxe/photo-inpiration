@@ -139,7 +139,6 @@ var _generateResurlts = function (argumentm, limit) {
                 // $("#searchResult .result-list").append('<li class="add leaderboard"><div class="center">'+ GlobalAdd +'</div></li>');
                 $("#searchResult .result-list").append('<li class="amazon-iframe"> '+ amazonBanners[actualBanner] +'</li>');
                 actualBanner ++;
-                console.log(actualBanner , ( amazonBanners.length));
                 if(actualBanner >= ( amazonBanners.length)){
                     actualBanner = 0;
                 }
@@ -150,7 +149,8 @@ var _generateResurlts = function (argumentm, limit) {
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
                         '</div>'+
-                        '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
+                        '<img colorify src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData">'+
+                        // '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
                         '<p>' +
                         ''+value.title+'' +
                         //                                    '<img src="https://s.yimg.com/pw/images/buddyicon09.png#'+value.owner+'" alt="" class="avatar">'+
@@ -161,6 +161,10 @@ var _generateResurlts = function (argumentm, limit) {
                     '');
             }
             actual_add_position ++;
+
+            var img = document.getElementById("imageData");
+            _checkColor(img);
+            img.remove();
         });
         // (adsbygoogle = window.adsbygoogle || []).push({});
     });
@@ -187,7 +191,6 @@ var _ownerPhoto = function _ownerPhoto(argument) {
     }).done(function(data) {
         var info = data.photo;
         console.log(info);
-
 
         var name = '';
         if(info.owner.realname){
@@ -218,4 +221,55 @@ var _ownerPhoto = function _ownerPhoto(argument) {
             '</div>' +
         '</div>');
     });
+};
+
+var _checkColor = function _checkColor(img){
+    var colors = getColors(draw(img));
+    for (var hex in colors) {
+        console.log( pad(hex) + "->" + colors[hex]);
+    }
+
+    function draw(img) {
+        var canvas = document.createElement("canvas");
+        var c = canvas.getContext('2d');
+        c.width = canvas.width = img.width;
+        c.height = canvas.height = img.height;
+        c.clearRect(0, 0, c.width, c.height);
+        c.drawImage(img, 0, 0, img.width , img.height);
+        return c; // returns the context
+    }
+
+    function getColors(c) {
+        console.log(c);
+        var col, colors = {};
+        var pixels, r, g, b, a;
+        r = g = b = a = 0;
+        pixels = c.getImageData(0, 0, c.width, c.height);
+        for (var i = 0, data = pixels.data; i < data.length; i += 4) {
+            r = data[i];
+            g = data[i + 1];
+            b = data[i + 2];
+            a = data[i + 3]; // alpha
+            // skip pixels >50% transparent
+            if (a < (255 / 2))
+                continue;
+            col = rgbToHex(r, g, b);
+            if (!colors[col])
+                colors[col] = 0;
+            colors[col]++;
+        }
+        return colors;
+    }
+
+    function rgbToHex(r, g, b) {
+        if (r > 255 || g > 255 || b > 255)
+            throw "Invalid color component";
+        return ((r << 16) | (g << 8) | b).toString(16);
+    }
+
+// nicely formats hex values
+    function pad(hex) {
+        return ("000000" + hex).slice(-6);
+    }
+
 };

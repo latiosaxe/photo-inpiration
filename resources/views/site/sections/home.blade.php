@@ -28,7 +28,6 @@
 
         function shuffle_assoc($list) {
             if (!is_array($list)) return $list;
-
             $keys = array_keys($list);
             shuffle($keys);
             $random = array();
@@ -37,7 +36,6 @@
             }
             return $random;
         }
-
         ?>
         <ul>
             @foreach($result as $item)

@@ -443,6 +443,11 @@ body{
                 }
             }
         }
+        .byebye{
+            top: -100%;
+            left: -100%;
+            position: absolute;
+        }
         .author{
             bottom: 0;
             z-index: 2;
