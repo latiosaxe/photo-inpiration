@@ -17,7 +17,7 @@ class CreatePhoto extends Migration
             $table->increments('id');
             $table->string('uid')->nullable();
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('photo')->nullable();
             $table->integer('votes')->default(0);
             $table->string('category')->nullable();
