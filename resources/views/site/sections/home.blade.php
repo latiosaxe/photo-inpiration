@@ -45,14 +45,14 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var limit_add = 6,
-                actual_add_position = 0;
+        var limit_add = 3,
+            actual_add_position = 0;
 
         var homeArguments = ['outside', 'portrait', 'macro', 'landscape', 'street', 'city', 'new'];
         var argument = homeArguments[Math.floor(Math.random() * homeArguments.length)];
 
         $(document).ready(function () {
-            _generateResurlts(argument  , 6);
+            _generateResurlts(argument  , 7);
             $("#home-add").html(GlobalAdd);
         });
     </script>

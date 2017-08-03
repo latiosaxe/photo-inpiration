@@ -412,7 +412,8 @@ body{
     font-size: 0;
     li{
         z-index: 1;
-        width: 33.33%;
+        width: 28%;
+        //width: 33.33%;
         position: relative;
         display: inline-block;
         overflow: hidden;
@@ -421,6 +422,26 @@ body{
         @include transition(box-shadow 150ms ease-in-out);
         a{
             text-decoration: none;
+        }
+        .vote{
+            top: 10px;
+            left: 10px;
+            z-index: 9;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            .vote-icon{
+                width: 40px;
+                height: 35px;
+                padding: 20px;
+                background: url("/assets/images/icons/love-normal.png") center center no-repeat;
+                background-size: 100% auto;
+            }
+            &:hover{
+                .vote-icon{
+                    background-image: url("/assets/images/icons/love-active.png");
+                }
+            }
         }
         .author{
             bottom: 0;
@@ -462,6 +483,13 @@ body{
                 }
             }
         }
+        &.amazon-iframe{
+            width: 16%;
+            iframe{
+                margin: 0 auto;
+                display: block;
+            }
+        }
         &.add{
             width: 100%;
             display: block;
@@ -481,6 +509,9 @@ body{
                     margin: 0 auto;
                     background: $dark-color;
                 }
+            }
+            &.amazon-iframe{
+
             }
         }
         &:hover{

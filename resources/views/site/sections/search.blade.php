@@ -6,16 +6,6 @@
 
 @section('content')
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Leaderborad Desktop -->
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:728px;height:90px"
-         data-ad-client="ca-pub-4124457392679487"
-         data-ad-slot="6016058684"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
     <div id="searchResult">
         <div class="boxLoading">
             <p class="textLoading">We are working on your search</p>
@@ -30,13 +20,13 @@
 @section('scripts')
     <script type="text/javascript">
 
-        var limit_add = 6,
+        var limit_add = 3,
             actual_add_position = 0;
 
 
         var argument = $("#argument").data('search');
         $(document).ready(function () {
-            _generateResurlts(argument  , 27);
+            _generateResurlts(argument  , 28);
         });
     </script>
 @endsection

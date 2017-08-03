@@ -19,7 +19,7 @@ if (isset($seo)){
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
-    
+
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,6 +40,8 @@ if (isset($seo)){
     <meta name="twitter:site" content="{{$seo->canonical}}">
     <meta name="twitter:description" content="{{$seo->description}}">
     <meta name="twitter:domain" content="{{$seo->domain}}">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -94,8 +96,8 @@ if (isset($seo)){
     <div class="fake-header"></div>
 
     <div class="latiosaxe" id="latiosaxe">
-        @yield('content')
 
+        @yield('content')
 
     </div>
 
@@ -105,6 +107,9 @@ if (isset($seo)){
                 <p>All rights reserved</p>
                 <p>This website is possible because of <a href="#" target="_blank">Flickr</a></p>
                 <p>Created by <a href="https://twitter.com/latiosaxe" id="myTwitter" target="_blank">@latiosaxe</a></p>
+                <p>
+                    <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=photogra0e0eb-20&linkCode=ur2&linkId=8488a1730f346d2169341c9b978e32e4&camp=1789&creative=9325&node=3017941">Do you want your own DSLR?</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=photogra0e0eb-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+                </p>
             </div>
             <div class="half">
                 <p>
