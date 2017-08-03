@@ -510,14 +510,14 @@ body{
                     background: $dark-color;
                 }
             }
-            &.amazon-iframe{
-
-            }
         }
         &:hover{
             z-index: 2;
             @include box-shadow(0 0 20px rgba(0,0,0,1));
             &.add{
+                @include box-shadow(0 0 0 rgba(0,0,0,0));
+            }
+            &.amazon-iframe{
                 @include box-shadow(0 0 0 rgba(0,0,0,0));
             }
             a{
