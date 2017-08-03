@@ -14,15 +14,15 @@ class VoteController extends Controller
         $data = (object)['message' => ''];
 
         $ip = $_SERVER['REMOTE_ADDR'];
-//        $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}"));
-        $details = '';
+        $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}"));
+//        $details = '';
 
         try {
             $voteData = [
-                'photo_id' => $request->input('photo_id', ''),
+                'photo_id' => $request->get('photo_id'),
                 'ip' => $ip,
-//                'region' => $details->city,
-                'region' => $details,
+                'region' => $details->city,
+//                'region' => $details,
             ];
             $vote = Vote::create($voteData);
 

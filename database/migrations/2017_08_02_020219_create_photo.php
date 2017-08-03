@@ -15,16 +15,18 @@ class CreatePhoto extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('uid');
-            $table->string('title');
-            $table->string('description');
-            $table->string('photo');
-            $table->integer('votes');
-            $table->string('category');
-            $table->string('user_name');
-            $table->string('user_nickname');
-            $table->string('user_location');
-            $table->string('user_profile');
+            $table->string('uid')->nullable();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('photo')->nullable();
+            $table->integer('votes')->default(0);
+            $table->string('category')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('user_nickname')->nullable();
+            $table->string('user_location')->nullable();
+            $table->string('user_profile')->nullable();
+            $table->string('average_color')->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

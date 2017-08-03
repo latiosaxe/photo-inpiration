@@ -149,8 +149,8 @@ var _generateResurlts = function (argumentm, limit) {
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
                         '</div>'+
-                        '<img colorify src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData">'+
-                        // '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
+                        // '<img colorify src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData">'+
+                        '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
                         '<p>' +
                         ''+value.title+'' +
                         //                                    '<img src="https://s.yimg.com/pw/images/buddyicon09.png#'+value.owner+'" alt="" class="avatar">'+
@@ -162,9 +162,9 @@ var _generateResurlts = function (argumentm, limit) {
             }
             actual_add_position ++;
 
-            var img = document.getElementById("imageData");
-            _checkColor(img);
-            img.remove();
+        //     var img = document.getElementById("imageData");
+        //     _checkColor(img);
+        //     img.remove();
         });
         // (adsbygoogle = window.adsbygoogle || []).push({});
     });

@@ -15,9 +15,9 @@ class CreateVote extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('photo_id');
-            $table->string('ip');
-            $table->string('region');
+            $table->bigInteger('photo_id')->default(0);
+            $table->string('ip')->nullable();
+            $table->string('region')->nullable();
             $table->timestamps();
         });
     }
