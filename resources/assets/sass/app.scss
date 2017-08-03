@@ -422,6 +422,36 @@ body{
     .single{
         @include photo_block();
         width: 33.28%;
+
+        .color_block{
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            &.color_top{
+                top: 0;
+                span{
+                    float: left;
+                    height: 20px;
+                    width: 12.5%;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: center;
+                    color: #FFF;
+                }
+            }
+            &.color_bottom{
+                bottom: 0;
+                span{
+                    color: #FFF;
+                    margin: 0 auto;
+                    display: block;
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 

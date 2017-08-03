@@ -46,7 +46,7 @@
         position: absolute;
     }
     .author{
-        bottom: 0;
+        bottom: 20px;
         z-index: 2;
         left: -100%;
         position: absolute;
@@ -68,9 +68,9 @@
         background: center center no-repeat;
         background-size: cover;
         p{
+            color: #FFF; 
+            bottom: 20px;
             right: -250px;
-            bottom: 0;
-            color: #FFF;
             display: inline;
             font-size: 1rem;
             max-width: 250px;

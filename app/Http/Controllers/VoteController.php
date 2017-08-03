@@ -78,7 +78,7 @@ class VoteController extends Controller
 //        $dominantColor = ColorThief::getColor($content);
 
         $dominantColor = ColorThief::getColor($content);
-        $palette = ColorThief::getPalette($content, 8);
+        $palette = ColorThief::getPalette($content, 9);
 
         $data['domain'] = $dominantColor;
         $data['palette'] = $palette;

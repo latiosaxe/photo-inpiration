@@ -36,6 +36,17 @@
             <a href="{{ $photo->user_profile }}" class="author" target="_blank">
                 <p>@if($photo->user_name) {{$photo->user_name}} @else {{$photo->user_nickname}} @endif</p>
             </a>
+            <?php
+                $colorsSplit = explode("|", $photo->palette_color);
+            ?>
+            <div class="color_block color_top">
+                @foreach($colorsSplit as $single)
+                    @if($single)
+                        <span style="background: {{ $single }}"></span>
+                    @endif
+                @endforeach
+            </div>
+            <div class="color_block color_bottom" style="background: {{ $photo->average_color }}"><span>Average color: {{ $photo->average_color }}</span></div>
         </div>
     @endforeach
 </div>
