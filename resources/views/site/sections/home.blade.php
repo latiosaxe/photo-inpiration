@@ -20,7 +20,29 @@
 </div>
 <div class="categories">
     <div class="container">
-        <h3>Popular on {{ env('APP_NAME') }}</h3>
+        <h3>Popular on {{ env('APP_FULLNAME') }}</h3>
+    </div>
+</div>
+
+<div class="color_photo_grid">
+    @foreach($photos as $photo)
+        <div class="single wrapper">
+            <div class="vote">
+                <span>{{ $photo->votes }}</span><div class="vote-icon normal"></div>
+            </div>
+            <a class="photo" data-id="{{ $photo->uid }}" href="{{ $photo->user_profile }}" target="_blank" style="background-image: url('{{ $photo->photo }}')">
+                <p> {{ $photo->title }} </p>
+            </a>
+            <a href="{{ $photo->user_profile }}" class="author" target="_blank">
+                <p>@if($photo->user_name) {{$photo->user_name}} @else {{$photo->user_nickname}} @endif</p>
+            </a>
+        </div>
+    @endforeach
+</div>
+
+<div class="categories">
+    <div class="container">
+        <h3>Popular categories {{ env('APP_FULLNAME') }}</h3>
         <?php
         $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise', 'bay', 'sky', 'sunset', 'people', 'lake', 'pink'];
         $random = shuffle_assoc($popular);

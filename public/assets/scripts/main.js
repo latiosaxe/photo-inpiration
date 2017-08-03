@@ -35,9 +35,12 @@ $(document).ready(function () {
         }, 350);
     });
 
-    $(".site").delegate('.result-list li .vote', 'click', function (event) {
+    $(".site").delegate('.result-list li .vote, .color_photo_grid .single .vote', 'click', function (event) {
         event.preventDefault();
-        var photoID = $(this).closest('li').find('.photo').data('id');
+        var _$this = $(this);
+        var photoID = _$this.closest('.wrapper').find('.photo').data('id');
+
+        console.log(photoID);
         $.ajax({
             method: 'GET',
             url: 'https://www.flickr.com/services/rest',
@@ -53,10 +56,10 @@ $(document).ready(function () {
             console.log(info);
 
             var tagsArray = [];
-
-            $.each(info.tags.tag, function (index, value) {
-               tagsArray.push(value.raw);
-            });
+            //
+            // $.each(info.tags.tag, function (index, value) {
+            //    tagsArray.push(value.raw);
+            // });
             console.log(tagsArray);
 
             var data = {
@@ -72,17 +75,31 @@ $(document).ready(function () {
             };
 
             var _token =  $('meta[name="csrf-token"]').attr('content');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': _token
-                }
-            });
+            // $.ajaxSetup({
+            //     headers: {
+            //         'X-CSRF-TOKEN': _token
+            //     }
+            // });
             $.ajax({
                 url: '/new_vote',
                 data: data,
                 type: 'post',
+
+                beforeSend: function (xhr, type) {
+                    // Set the CSRF Token in the header for security
+                    if (type.type !== "GET") {
+                        xhr.setRequestHeader('X-CSRF-TOKEN', _token);
+                    }
+                },
+
+
                 success: function (data){
                     console.log(data);
+                    console.log(_$this);
+                    _$this.addClass('active');
+                    if(_$this.find('span').length > 0){
+                        _$this.find('span').text( parseInt( _$this.find('span').text() , 10) + 1);
+                    }
                 },
                 error: function (err){
                     console.log(err.responseText);
@@ -145,7 +162,7 @@ var _generateResurlts = function (argumentm, limit) {
                 actual_add_position = -4;
             }else{
                 $("#searchResult .result-list").append('' +
-                    '<li>' +
+                    '<li class="wrapper">' +
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
                         '</div>'+
@@ -156,7 +173,7 @@ var _generateResurlts = function (argumentm, limit) {
                         //                                    '<img src="https://s.yimg.com/pw/images/buddyicon09.png#'+value.owner+'" alt="" class="avatar">'+
                         '</p>' +
                         '</a>' +
-                        '<a href="https://www.flickr.com/photos/'+value.owner+'/" class="author" target="_blank"><p>Owner</p></a>'+
+                        // '<a href="https://www.flickr.com/photos/'+value.owner+'/" class="author" target="_blank"><p>Owner</p></a>'+
                     '</li>' +
                     '');
             }

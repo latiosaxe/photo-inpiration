@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('site.sections.home');
-});
+//Route::get('/', function () {
+//    return view('site.sections.home');
+//});
+
+Route::get('/',          'PhotoController@index');
+
 
 Route::get('/terms',   function () {return view('site.sections.legals'); });
 Route::get('/privacy', function () {return view('site.sections.privacy'); });
