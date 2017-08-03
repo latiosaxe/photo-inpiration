@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class PhotoController extends Controller
 {
     public function index(){
-        $photos = Photo::where('active', 1)->orderBy('votes', 'desc')->take(6)->get();
+        $allPhotos = Photo::where('active', 1)->orderBy('votes', 'desc')->take(20)->get();
+        $photos = $allPhotos->random(6);
 
         $data = [
             'photos' => $photos,
