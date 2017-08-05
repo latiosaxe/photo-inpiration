@@ -170,16 +170,17 @@ var _generateResurlts = function (argumentm, limit) {
             }else{
                 $("#searchResult .result-list").append('' +
                     '<li class="wrapper">' +
-                        '<div class="vote">' +
-                            '<div class="vote-icon normal"></div>'+
+                        '<div itemscope itemtype="http://schema.org/ImageObject">'+
+                            '<div class="vote">' +
+                                '<div class="vote-icon normal"></div>'+
+                            '</div>'+
+                            '<img style="visibility: hidden" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
+                            '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
+                            '<p itemprop="description">' +
+                                ''+value.title+'' +
+                            '</p>' +
+                            '</a>' +
                         '</div>'+
-                        // '<img colorify src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData">'+
-                        '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
-                        '<p>' +
-                        ''+value.title+'' +
-                        //                                    '<img src="https://s.yimg.com/pw/images/buddyicon09.png#'+value.owner+'" alt="" class="avatar">'+
-                        '</p>' +
-                        '</a>' +
                         // '<a href="https://www.flickr.com/photos/'+value.owner+'/" class="author" target="_blank"><p>Owner</p></a>'+
                     '</li>' +
                     '');
