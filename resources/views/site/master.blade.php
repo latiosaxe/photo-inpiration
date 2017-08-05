@@ -68,8 +68,8 @@ if (isset($seo)){
         <div class="relative">
             <div class="logo">
                 <a href="/">
-                    {{--<img src="/assets/images/logo.png" alt="Photo Inspiration">--}}
-                    <h1>Photography Inspiration</h1>
+                    <img src="/assets/images/photo_inspiration_logo_white.png" alt="Photo Inspiration">
+                    <h1>{{ env('APP_FULLNAME') }}</h1>
                 </a>
             </div>
             <div class="popular">
