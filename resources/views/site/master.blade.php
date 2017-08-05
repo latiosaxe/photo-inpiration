@@ -68,8 +68,8 @@ if (isset($seo)){
         <div class="relative">
             <div class="logo">
                 <a href="/">
-                    {{--<img src="/assets/images/logo.png" alt="Photo Inspiration">--}}
-                    <h1>Photography Inspiration</h1>
+                    <img src="/assets/images/photo_inspiration_logo_white.png" alt="Photo Inspiration">
+                    <h1>{{ env('APP_FULLNAME') }}</h1>
                 </a>
             </div>
             <div class="popular">
@@ -121,7 +121,6 @@ if (isset($seo)){
     </footer>
 </div>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
-<script src="/assets/scripts/libs/colorify.js"></script>
 <script src="/assets/scripts/main.js"></script>
 @yield('scripts')
 </body>

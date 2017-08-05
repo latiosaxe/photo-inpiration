@@ -88,25 +88,29 @@ body{
             position: relative;
             height: $height-header;
             .logo{
+                height: 100%;
                 vertical-align: middle;
                 display: inline-block;
                 a{
-                    overflow: hidden;
+                    height: 100%;
                     color: #FFF;
+                    overflow: hidden;
                     padding-top: 5px;
                     display: inline-block;
                     text-decoration: none;
-                    //img{
-                    //    height: 100%;
-                    //    display: block;
-                    //}
+                    img{
+                        height: 55%;
+                        margin: 3.3% 10px 5.3%;
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
                     h1{
                         //top: -200px;
                         //left: -200px;
                         //position: absolute;
                         color: #FFF;
                         padding: 4px 0;
-                        font-size: 40px;
+                        font-size: 24px;
                         font-weight: 700;
                         line-height: 140%;
                         display: inline-block;
