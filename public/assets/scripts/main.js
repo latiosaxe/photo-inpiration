@@ -160,7 +160,7 @@ var _generateResurlts = function (argumentm, limit) {
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
                         '</div>'+
-                        '<img style="visibility: hidden" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
+                        '<img style="visibility: hidden; height: 0; width: 0; position: absolute;" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
                         '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
                         '<p itemprop="description">' +
                             ''+value.title+'' +
