@@ -9,7 +9,7 @@ class PhotoController extends Controller
 {
     public function index(){
         $allPhotos = Photo::where('active', 1)->orderBy('votes', 'desc')->take(20)->get();
-        $photos = $allPhotos->random(12);
+        $photos = $allPhotos->random(18);
 
         $data = [
             'photos' => $photos,
