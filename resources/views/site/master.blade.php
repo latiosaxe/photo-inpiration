@@ -72,6 +72,9 @@ if (isset($seo)){
                     <h1>{{ env('APP_FULLNAME') }}</h1>
                 </a>
             </div>
+            <div class="about">
+                <a href="/how-it-works">How it works?</a>
+            </div>
             <div class="popular">
                 <span>Popular <small>▼</small></span>
                 <?php
@@ -103,7 +106,7 @@ if (isset($seo)){
         <div class="container">
             <div class="half">
                 <p>All rights reserved</p>
-                <p>This website is possible because of <a href="#" target="_blank">Flickr</a></p>
+                <p>This website is possible because of <a href="https://www.flickr.com/" target="_blank">Flickr</a></p>
                 <p>Created by <a href="https://twitter.com/latiosaxe" id="myTwitter" target="_blank">@latiosaxe</a></p>
                 <p>
                     <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=photogra0e0eb-20&linkCode=ur2&linkId=8488a1730f346d2169341c9b978e32e4&camp=1789&creative=9325&node=3017941">Do you want your own DSLR?</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=photogra0e0eb-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />

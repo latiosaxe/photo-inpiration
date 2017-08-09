@@ -119,6 +119,23 @@ body{
                 }
             }
 
+            .about{
+                float: right;
+                color: #FFF;
+                margin-top: 25px;
+                margin-right: 330px;
+                padding: 5px 10px;
+                vertical-align: middle;
+                display: inline-block;
+                position: relative;
+                a{
+                    color: #FFF;
+                    display: block;
+                    font-size: 20px;
+                    position: relative;
+                    text-decoration: none;
+                }
+            }
             .popular{
                 float: right;
                 color: #FFF;
@@ -130,7 +147,7 @@ body{
                 position: relative;
                 span{
                     display: block;
-                    font-size: 22px;
+                    font-size: 20px;
                     position: relative;
                     small{
                         font-size: 12px;

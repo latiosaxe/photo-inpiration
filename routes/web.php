@@ -18,6 +18,7 @@
 Route::get('/',          'PhotoController@index');
 
 
+Route::get('/how-it-works',   function () {return view('site.sections.about'); });
 Route::get('/terms',   function () {return view('site.sections.legals'); });
 Route::get('/privacy', function () {return view('site.sections.privacy'); });
 
