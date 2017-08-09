@@ -18,7 +18,7 @@ if (isset($seo)){
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords')">
+    <meta name="keywords" content="@yield('keywords'), inspiration photographers">
 
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
