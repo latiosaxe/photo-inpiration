@@ -26,7 +26,7 @@
 
         var argument = $("#argument").data('search');
         $(document).ready(function () {
-            _generateResurlts(argument  , 28);
+            _generateResurlts(argument  , 40); 
         });
     </script>
 @endsection
