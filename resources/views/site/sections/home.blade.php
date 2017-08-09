@@ -104,3 +104,13 @@
         });
     </script>
 @endsection
+
+
+
+
+{{--<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">--}}
+    {{--<img itemprop="image" class="post_preview" alt="Article title" class="hide-for-small" src="http://example.co.uk/wp-content/uploads/2016/02/example-image.jpg" />--}}
+    {{--<meta itemprop="url" content="http://example.co.uk/wp-content/uploads/2016/02/example-image.jpg">--}}
+    {{--<meta itemprop="width" content="800">--}}
+    {{--<meta itemprop="height" content="800">--}}
+{{--</div>--}}

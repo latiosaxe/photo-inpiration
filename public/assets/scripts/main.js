@@ -156,15 +156,14 @@ var _generateResurlts = function (argumentm, limit) {
                 actual_add_position = -4;
             }else{
                 $("#searchResult .result-list").append('' +
-                    '<li class="wrapper">' +
+                    '<li class="wrapper" itemscope itemtype="http://schema.org/ImageObject">' +
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
                         '</div>'+
-                        // '<img colorify src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData">'+
+                        '<img style="visibility: hidden; height: 0; width: 0; position: absolute;" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
                         '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
-                        '<p>' +
-                        ''+value.title+'' +
-                        //                                    '<img src="https://s.yimg.com/pw/images/buddyicon09.png#'+value.owner+'" alt="" class="avatar">'+
+                        '<p itemprop="description">' +
+                            ''+value.title+'' +
                         '</p>' +
                         '</a>' +
                         // '<a href="https://www.flickr.com/photos/'+value.owner+'/" class="author" target="_blank"><p>Owner</p></a>'+
