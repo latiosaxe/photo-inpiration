@@ -35,11 +35,32 @@ class VoteController extends Controller
             $photo = Photo::where('uid','=', $request->get('photo_id'))->first();
             if ($photo === null) {
                 $colors = $this->getImageColor($request->input('photo', ''));
+
+
                 $result = array();
+                $resultDomain = array();
                 foreach ($colors['palette'] as $singleColor) {
                     $element = (object) array('red' => $singleColor[0], 'green' => $singleColor[1], 'blue' => $singleColor[2]);
                     $result[] = $element;
+                    $colorData = [
+                        'photo_id' => $photoId,
+                        'red' => $singleColor[0],
+                        'green' => $singleColor[1],
+                        'blue' => $singleColor[2],
+                    ];
+                    $newColor = Color::create($colorData);
                 }
+
+                $elementDomain = (object) array('red' => $colors['domain'][0], 'green' => $colors['domain'][1], 'blue' => $colors['domain'][2]);
+                $resultDomain[] = $elementDomain;
+                $colorDataDomain = [
+                    'photo_id' => $photoId,
+                    'red' => $colors['domain'][0],
+                    'green' => $colors['domain'][1],
+                    'blue' => $colors['domain'][2],
+                ];
+                $newColoDomain = Color::create($colorDataDomain);
+
                 $photoData = [
                     'uid' => $photoId,
                     'title' => $request->get('title', ''),
@@ -51,18 +72,17 @@ class VoteController extends Controller
                     'user_nickname' => $request->input('user_nickname', ''),
                     'user_location' => $request->input('user_location', ''),
                     'user_profile' => $request->input('user_profile', ''),
-                    'average_color' => 'rgb('.$colors['domain'][0].', '.$colors['domain'][1].', '.$colors['domain'][2].')',
+                    'average_color' => json_encode($resultDomain),
                     'palette_color' => json_encode($result),
                 ];
                 $newphoto = Photo::create($photoData);
-
-                $colorData = [
-                    'photo_id' => $photoId,
-                    'red' => $colors['domain'][0],
-                    'green' => $colors['domain'][1],
-                    'blue' => $colors['domain'][2],
-                ];
-                $newColor = Color::create($colorData);
+//                $colorData = [
+//                    'photo_id' => $photoId,
+//                    'red' => $colors['domain'][0],
+//                    'green' => $colors['domain'][1],
+//                    'blue' => $colors['domain'][2],
+//                ];
+//                $newColor = Color::create($colorData);
             }else{
                 Photo::where('uid','=', $request->get('photo_id'))->first()->increment('votes');
             }

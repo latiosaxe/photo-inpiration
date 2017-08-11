@@ -25,8 +25,8 @@ class CreatePhoto extends Migration
             $table->string('user_nickname')->nullable();
             $table->string('user_location')->nullable();
             $table->string('user_profile')->nullable();
-            $table->string('average_color')->nullable();
-            $table->palette_color('palette_color')->nullable();
+            $table->text('average_color')->nullable();
+            $table->text('palette_color')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

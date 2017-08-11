@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div id="searchResult">
+    <div id="searchResult" style="min-height: 100vh;">
         <div class="boxLoading">
             <p class="textLoading">We are working on your search</p>
             <div class="block"></div>
@@ -19,14 +19,12 @@
 
 @section('scripts')
     <script type="text/javascript">
-
         var limit_add = 3,
             actual_add_position = 0;
 
-
         var argument = $("#argument").data('search');
         $(document).ready(function () {
-            _generateResurlts(argument  , 28);
+            _generateResurlts(argument  , 42);
         });
     </script>
 @endsection

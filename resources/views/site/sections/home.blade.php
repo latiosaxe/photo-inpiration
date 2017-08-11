@@ -10,7 +10,7 @@
             <h2>Inspiring Photos Since 2017</h2>
             <p>Yep, we just start</p>
             <br><br><br>
-            <p class="small">Search for something interesting</p>
+            <p class="small">Search for something interesting and help us to get better by doing like on result's photos</p>
             <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
                 <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
                 <button type="submit">Search</button>
@@ -20,7 +20,14 @@
 </div>
 
 <div class="how-it-works">
-
+    <div class="square">
+        <p class="title">How does it work?</p>
+        <div class="description">
+            <p>By clicking Love on the photos that you think are great, you are helping us to organize really cool photos by color than you can search them by category or color, Is not it great?.</p>
+            <p>There are many photos out there, but you can make inspire yourself and another one with your help.</p>
+        </div>
+    </div>
+    {{--<p class="description"><strong>{{ env('APP_FULLNAME') }}</strong> use Flickr API <em>(we are working on Instagram right now)</em> to get photos and organized by color, we are just started to get the average color of each photo you like, <strong>more you like more that you help us to get.</strong></p>--}}
 </div>
 
 <div class="categories">
@@ -43,10 +50,16 @@
             </a>
             <div class="color_block color_top">
                 @foreach(json_decode($photo->palette_color) as $color)
-                    <span style="background: rgb({{$color->red}},{{$color->green}},{{$color->blue}})"></span>
+                    <span class="searchByColor" data-color="{{$color->red}},{{$color->green}},{{$color->blue}}" style="background: rgb( {{$color->red}},{{$color->green}},{{$color->blue}} )"></span>
                 @endforeach
             </div>
-            <div class="color_block color_bottom" style="background: {{ $photo->average_color }}"><span>Average color: {{ $photo->average_color }}</span></div>
+            <?php
+                $average = json_decode($photo->average_color)[0];
+                $averageData = $average->red.','.$average->green.','.$average->blue;
+                $averageRGB = 'rgb('.$average->red.', '.$average->green.', '.$average->blue.')';
+            ?>
+            {{--{{ dd( $average) }}--}}
+            <div class="color_block color_bottom searchByColor" data-color="{{ $averageData }}" style="background: {{ $averageRGB }}"><span>Average color: {{ $averageRGB }}</span></div>
         </div>
     @endforeach
 </div>
