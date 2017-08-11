@@ -18,6 +18,11 @@
         </div>
     </div>
 </div>
+
+<div class="how-it-works">
+
+</div>
+
 <div class="categories">
     <div class="container">
         <h3>Popular on {{ env('APP_FULLNAME') }}</h3>
@@ -36,14 +41,9 @@
             <a href="{{ $photo->user_profile }}" class="author" target="_blank">
                 <p>@if($photo->user_name) {{$photo->user_name}} @else {{$photo->user_nickname}} @endif</p>
             </a>
-            <?php
-                $colorsSplit = explode("|", $photo->palette_color);
-            ?>
             <div class="color_block color_top">
-                @foreach($colorsSplit as $single)
-                    @if($single)
-                        <span style="background: {{ $single }}"></span>
-                    @endif
+                @foreach(json_decode($photo->palette_color) as $color)
+                    <span style="background: rgb({{$color->red}},{{$color->green}},{{$color->blue}})"></span>
                 @endforeach
             </div>
             <div class="color_block color_bottom" style="background: {{ $photo->average_color }}"><span>Average color: {{ $photo->average_color }}</span></div>
@@ -104,13 +104,3 @@
         });
     </script>
 @endsection
-
-
-
-
-{{--<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">--}}
-    {{--<img itemprop="image" class="post_preview" alt="Article title" class="hide-for-small" src="http://example.co.uk/wp-content/uploads/2016/02/example-image.jpg" />--}}
-    {{--<meta itemprop="url" content="http://example.co.uk/wp-content/uploads/2016/02/example-image.jpg">--}}
-    {{--<meta itemprop="width" content="800">--}}
-    {{--<meta itemprop="height" content="800">--}}
-{{--</div>--}}
