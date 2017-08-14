@@ -10,7 +10,7 @@
             <h2>Inspiring Photos Since 2017</h2>
             <p>Yep, we just start</p>
             <br><br><br>
-            <p class="small">Search for something interesting and help us to get better by doing like on result's photos</p>
+            <p class="small">Search for something interesting and help us to get better by doing "Love" on result's photos</p>
             <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
                 <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
                 <button type="submit">Search</button>
@@ -21,10 +21,10 @@
 
 <div class="how-it-works">
     <div class="square">
-        <p class="title">How does it work?</p>
+        <p class="title">HOW DOES IT WORK?</p>
         <div class="description">
-            <p>By clicking Love on the photos that you think are great, you are helping us to organize really cool photos by color than you can search them by category or color, Is not it great?.</p>
-            <p>There are many photos out there, but you can make inspire yourself and another one with your help.</p>
+            <p>By clicking "Love" on the photos that you think are great, you are helping us organize these really cool photos by color so you can search them by category or color. Isn't that great?</p>
+            <p>There are many photos out there, but you can inspire yourself and others with your help.</p>
         </div>
     </div>
     {{--<p class="description"><strong>{{ env('APP_FULLNAME') }}</strong> use Flickr API <em>(we are working on Instagram right now)</em> to get photos and organized by color, we are just started to get the average color of each photo you like, <strong>more you like more that you help us to get.</strong></p>--}}

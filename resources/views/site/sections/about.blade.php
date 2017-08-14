@@ -14,7 +14,7 @@
         <div class="container">
             <div class="body">
                 <p class="title">{{ env('APP_FULLNAME') }}</p>
-                <p>{{ env('APP_FULLNAME') }} use Flickr API (we are working on Instagram right now) to get photos and organized by color, we are just started to get the average color of each photo you like, <strong>more you like more that you help us to get.</strong></p>
+                <p>{{ env('APP_FULLNAME') }} uses Flickr API (we are working on Instagram right now) to get photos and organized by color, we are just starting by using the average color of each photo you like. <strong>The more you like these photos, the more that you help us organize them.</strong></p>
 
                 <br><br>
                 <p class="title">What's next?</p>
