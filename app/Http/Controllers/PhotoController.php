@@ -25,7 +25,7 @@ class PhotoController extends Controller
     public function searchByColor($color){
         $rgb = $color;
         $colors = explode("-", $rgb);
-        $rangeValue = 30;
+        $rangeValue = 10;
 
         $redMIN = 0;
         $greenMIN = 0;
@@ -43,7 +43,7 @@ class PhotoController extends Controller
 
         $images = Color::whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
             ->whereBetween('green', [ $greenMIN, $colors[1] + $rangeValue])
-            ->whereBetween('blue', [ $blueMIN, $colors[1] + $rangeValue])
+            ->whereBetween('blue', [ $blueMIN, $colors[2] + $rangeValue])
             ->inRandomOrder()
             ->get();
 
