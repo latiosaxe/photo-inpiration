@@ -435,6 +435,11 @@ body{
     font-size: 0;
     li{
         @include photo_block();
+        .vote{
+            &.loadingVote{
+
+            }
+        }
     }
 }
 .color_photo_grid{

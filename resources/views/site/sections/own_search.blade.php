@@ -20,6 +20,10 @@
             <div class="single wrapper" data-repeat="{{ $photo->uid }}">
                 <div class="vote">
                     <span>{{ $photo->votes }}</span><div class="vote-icon normal"></div>
+                    <div class="loading">
+                        <div class="bubble-1"></div>
+                        <div class="bubble-2"></div>
+                    </div>
                 </div>
                 <a class="photo" data-id="{{ $photo->uid }}" href="{{ $photo->user_profile }}" target="_blank" style="background-image: url('{{ $photo->photo }}')">
                     <p> {{ $photo->title }} </p>

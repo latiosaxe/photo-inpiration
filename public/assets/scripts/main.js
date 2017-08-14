@@ -70,7 +70,7 @@ $(document).ready(function () {
         event.preventDefault();
         var _$this = $(this);
         var photoID = _$this.closest('.wrapper').find('.photo').data('id');
-
+        $(this).addClass('loadingVote');
         console.log(photoID);
         $.ajax({
             method: 'GET',
