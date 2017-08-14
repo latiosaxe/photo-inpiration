@@ -25,7 +25,7 @@ class PhotoController extends Controller
     public function searchByColor($color){
         $rgb = $color;
         $colors = explode("-", $rgb);
-        $rangeValue = 30;
+        $rangeValue = 40; 
 
         $redMIN = 0;
         $greenMIN = 0;
