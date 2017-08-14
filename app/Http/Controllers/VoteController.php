@@ -31,12 +31,9 @@ class VoteController extends Controller
             $vote = Vote::create($voteData);
             $photoId = $request->input('photo_id', '');
 
-
             $photo = Photo::where('uid','=', $request->get('photo_id'))->first();
             if ($photo === null) {
                 $colors = $this->getImageColor($request->input('photo', ''));
-
-
                 $result = array();
                 $resultDomain = array();
                 foreach ($colors['palette'] as $singleColor) {
@@ -44,6 +41,7 @@ class VoteController extends Controller
                     $result[] = $element;
                     $colorData = [
                         'photo_id' => $photoId,
+                        'from' => 'palette',
                         'red' => $singleColor[0],
                         'green' => $singleColor[1],
                         'blue' => $singleColor[2],
@@ -55,6 +53,7 @@ class VoteController extends Controller
                 $resultDomain[] = $elementDomain;
                 $colorDataDomain = [
                     'photo_id' => $photoId,
+                    'from' => 'average',
                     'red' => $colors['domain'][0],
                     'green' => $colors['domain'][1],
                     'blue' => $colors['domain'][2],
@@ -76,13 +75,6 @@ class VoteController extends Controller
                     'palette_color' => json_encode($result),
                 ];
                 $newphoto = Photo::create($photoData);
-//                $colorData = [
-//                    'photo_id' => $photoId,
-//                    'red' => $colors['domain'][0],
-//                    'green' => $colors['domain'][1],
-//                    'blue' => $colors['domain'][2],
-//                ];
-//                $newColor = Color::create($colorData);
             }else{
                 Photo::where('uid','=', $request->get('photo_id'))->first()->increment('votes');
             }

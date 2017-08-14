@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Color extends Model
 {
     protected $fillable = [
-        'id', 'uid', 'photo_id', 'red', 'green', 'blue'
+        'id', 'uid', 'photo_id', 'red', 'green', 'blue', 'from'
     ];
     protected $table = 'colors';
 }

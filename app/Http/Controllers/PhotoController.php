@@ -41,7 +41,8 @@ class PhotoController extends Controller
             $blueMIN = $colors[2] - $rangeValue;
         }
 
-        $images = Color::whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
+        $images = Color::where('from', 'average')
+            ->whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
             ->whereBetween('green', [ $greenMIN, $colors[1] + $rangeValue])
             ->whereBetween('blue', [ $blueMIN, $colors[2] + $rangeValue])
             ->inRandomOrder()
