@@ -44,13 +44,18 @@ class PhotoController extends Controller
         $images = Color::whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
             ->whereBetween('green', [ $greenMIN, $colors[1] + $rangeValue])
             ->whereBetween('blue', [ $blueMIN, $colors[1] + $rangeValue])
+            ->inRandomOrder()
             ->get();
+
 
         $photos = array();
         foreach ($images as $image){
-            $photos[] =Photo::where('uid', $image->photo_id)->first();
+            $single = Photo::where('uid', $image->photo_id)->first();
+            if($single){
+                $photos[] = $single;
+            }
         }
-
+        
         $data = [
             'color' => $color,
             'photos' => $photos,
