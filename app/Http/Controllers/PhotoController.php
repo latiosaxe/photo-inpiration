@@ -22,9 +22,9 @@ class PhotoController extends Controller
 //        $this->searchByColor();
     }
 
-    public function searchByColor(Request $request){
-        $rgba = $request->get('color');
-        $colors = explode(",", $rgba);
+    public function searchByColor($color){
+        $rgb = $color;
+        $colors = explode("-", $rgb);
         $rangeValue = 40;
 
         $images = Color::whereBetween('red', [ $colors[0] - $rangeValue, $colors[0] + $rangeValue])
@@ -32,14 +32,16 @@ class PhotoController extends Controller
             ->whereBetween('blue', [ $colors[1] - $rangeValue, $colors[1] + $rangeValue])
             ->get();
 
-
-
-        
+        $photos = array();
         foreach ($images as $image){
-            dd($image->photo_id);
+            $photos[] =Photo::where('uid', $image->photo_id)->first();
         }
 
+        $data = [
+            'color' => $color,
+            'photos' => $photos,
+        ];
 
-//        return view('site.sections.own_search', $data);
+        return view('site.sections.own_search', $data);
     }
 }

@@ -36,31 +36,34 @@ $(document).ready(function () {
     });
 
     $(".site").delegate('.searchByColor', 'click', function (event) {
-        var data = {'color': $(this).data('color')};
-        var _token =  $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-            url: '/searchByColor',
-            data: data,
-            type: 'post',
-            beforeSend: function (xhr, type) {
-                if (type.type !== "GET") {
-                    xhr.setRequestHeader('X-CSRF-TOKEN', _token);
-                }
-            },
-            success: function (data){
-                console.log(data);
-            },
-            error: function (err){
-                console.log(err.responseText);
-            },
-            done: function () {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': ''
-                    }
-                });
-            }
-        });
+
+        location.href = "/color/"+$(this).data('color');
+
+        // var data = {'color': $(this).data('color')};
+        // var _token =  $('meta[name="csrf-token"]').attr('content');
+        // $.ajax({
+        //     url: '/searchByColor',
+        //     data: data,
+        //     type: 'post',
+        //     beforeSend: function (xhr, type) {
+        //         if (type.type !== "GET") {
+        //             xhr.setRequestHeader('X-CSRF-TOKEN', _token);
+        //         }
+        //     },
+        //     success: function (data){
+        //         console.log(data);
+        //     },
+        //     error: function (err){
+        //         console.log(err.responseText);
+        //     },
+        //     done: function () {
+        //         $.ajaxSetup({
+        //             headers: {
+        //                 'X-CSRF-TOKEN': ''
+        //             }
+        //         });
+        //     }
+        // });
     });
 
     $(".site").delegate('.result-list li .vote, .color_photo_grid .single .vote', 'click', function (event) {

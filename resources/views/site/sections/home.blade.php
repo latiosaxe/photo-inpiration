@@ -50,12 +50,12 @@
             </a>
             <div class="color_block color_top">
                 @foreach(json_decode($photo->palette_color) as $color)
-                    <span class="searchByColor" data-color="{{$color->red}},{{$color->green}},{{$color->blue}}" style="background: rgb( {{$color->red}},{{$color->green}},{{$color->blue}} )"></span>
+                    <span class="searchByColor" data-color="{{$color->red}}-{{$color->green}}-{{$color->blue}}" style="background: rgb( {{$color->red}},{{$color->green}},{{$color->blue}} )"></span>
                 @endforeach
             </div>
             <?php
                 $average = json_decode($photo->average_color)[0];
-                $averageData = $average->red.','.$average->green.','.$average->blue;
+                $averageData = $average->red.'-'.$average->green.'-'.$average->blue;
                 $averageRGB = 'rgb('.$average->red.', '.$average->green.', '.$average->blue.')';
             ?>
             {{--{{ dd( $average) }}--}}
