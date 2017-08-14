@@ -70,7 +70,7 @@ $(document).ready(function () {
         event.preventDefault();
         var _$this = $(this);
         var photoID = _$this.closest('.wrapper').find('.photo').data('id');
-        $(this).addClass('loadingVote');
+        _$this.addClass('loadingVote');
         console.log(photoID);
         $.ajax({
             method: 'GET',
@@ -124,6 +124,7 @@ $(document).ready(function () {
                     if(_$this.find('span').length > 0){
                         _$this.find('span').text( parseInt( _$this.find('span').text() , 10) + 1);
                     }
+                    _$this.removeClass('loadingVote');
                     ga('send', 'event', 'Click', 'Like', photoID);
                 },
                 error: function (err){
@@ -190,6 +191,10 @@ var _generateResurlts = function (argumentm, limit) {
                     '<li class="wrapper" itemscope itemtype="http://schema.org/ImageObject">' +
                         '<div class="vote">' +
                             '<div class="vote-icon normal"></div>'+
+                            '<div class="loading">'+
+                                '<div class="bubble-1"></div>'+
+                                '<div class="bubble-2"></div>'+
+                            '</div>'+
                         '</div>'+
                         '<img style="visibility: hidden; height: 0; width: 0; position: absolute;" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
                         '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
