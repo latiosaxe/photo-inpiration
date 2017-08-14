@@ -27,9 +27,23 @@ class PhotoController extends Controller
         $colors = explode("-", $rgb);
         $rangeValue = 40;
 
-        $images = Color::whereBetween('red', [ $colors[0] - $rangeValue, $colors[0] + $rangeValue])
-            ->whereBetween('green', [ $colors[1] - $rangeValue, $colors[1] + $rangeValue])
-            ->whereBetween('blue', [ $colors[1] - $rangeValue, $colors[1] + $rangeValue])
+        $redMIN = 0;
+        $greenMIN = 0;
+        $blueMIN = 0;
+
+        if($colors[0] - $rangeValue > 0){
+            $redMIN = $colors[0] - $rangeValue;
+        }
+        if($colors[1] - $rangeValue > 0){
+            $greenMIN = $colors[1] - $rangeValue;
+        }
+        if($colors[2] - $rangeValue > 0){
+            $blueMIN = $colors[2] - $rangeValue;
+        }
+
+        $images = Color::whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
+            ->whereBetween('green', [ $greenMIN, $colors[1] + $rangeValue])
+            ->whereBetween('blue', [ $blueMIN, $colors[1] + $rangeValue])
             ->get();
 
         $photos = array();
