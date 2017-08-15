@@ -60,6 +60,7 @@ class PhotoController extends Controller
         $data = [
             'color' => $color,
             'photos' => $photos,
+            'keyword' => 'Color',
         ];
 
         return view('site.sections.own_search', $data);

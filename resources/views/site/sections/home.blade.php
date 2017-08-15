@@ -7,14 +7,22 @@
 <div class="welcome">
     <div class="vertical-align">
         <div class="container">
-            <h2>Inspiring Photos Since 2017</h2>
-            <p>Yep, we just start</p>
+            <h2>Get inspired by Text search or color</h2>
+            {{--<p>Yep, we just start</p>--}}
             <br><br><br>
-            <p class="small">Search for something interesting and help us to get better by doing "Love" on result's photos</p>
-            <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
-                <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
-                <button type="submit">Search</button>
-            </form>
+            <div class="row home-tuto">
+                <div class="col-md-6">
+                    <p class="small">Search for something interesting and help us to get better by doing "Love" on result's photos.</p>
+                    <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
+                        <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <p class="small">¿Love colors?, the pick four favorite one and see the magic.</p>
+                    @include('site.partials._color_picker')
+                </div>
+            </div>
         </div>
     </div>
 </div>

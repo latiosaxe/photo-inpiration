@@ -14,6 +14,13 @@
     </div>
 
     <span id="argument" data-search="{{ $keyword }}"></span>
+
+
+    <div class="color-section">
+        <p class="title">Make another search, try with a color</p>
+        <p>Dont forget to like photos!</p>
+        @include('site.partials._color_picker')
+    </div>
 @endsection
 
 

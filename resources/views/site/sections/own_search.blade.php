@@ -1,9 +1,9 @@
 @extends('site.master')
-@section('title')Photography inspiration by color@stop
-@section('description')Photography inspiration by color@stop
-@section('keywords')photography,inspiration,photo,color@stop
-@section('content')
+@section('title')Photography inspiration by {{ $keyword }}@stop
+@section('description')Photography inspiration by {{ $keyword }}@stop
+@section('keywords')photography,inspiration,photo,{{ $keyword }}@stop
 
+@section('content')
     <div class="categories">
         <div class="container">
             <?php
@@ -12,7 +12,6 @@
             <h3>Results for color search: <strong>Red {{ $rgb[0] }}, Green {{ $rgb[1] }}, Blue {{ $rgb[2] }}</strong></h3>
         </div>
     </div>
-
 
     <div class="color_photo_grid">
         {{--{{ dd($photos) }}--}}
@@ -44,6 +43,12 @@
                 <div class="color_block color_bottom searchByColor" data-color="{{ $averageData }}" style="background: {{ $averageRGB }}"><span>Average color: {{ $averageRGB }}</span></div>
             </div>
         @endforeach
+    </div>
+
+    <div class="color-section">
+        <p class="title">Make another search, try with another color</p>
+        <p>Dont forget to like photos!</p>
+        @include('site.partials._color_picker')
     </div>
 @endsection
 @section('scripts')

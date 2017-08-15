@@ -34,6 +34,16 @@ body{
     padding: 0 15px;
     overflow: hidden;
     max-width: 1200px;
+    .row{
+        width: 100%;
+        margin: 0 -15px;
+        overflow: hidden;
+        .col-md-6{
+            width: 50%;
+            float: left;
+            padding: 0 15px;
+        }
+    }
 }
 .half{
     width: 50%;
