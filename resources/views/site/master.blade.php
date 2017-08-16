@@ -111,7 +111,6 @@ if (isset($seo)){
     <div class="latiosaxe" id="latiosaxe">
         @yield('content')
     </div>
-
     <footer>
         <div class="container">
             <div class="half">

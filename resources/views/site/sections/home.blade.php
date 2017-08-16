@@ -7,25 +7,59 @@
 <div class="welcome">
     <div class="vertical-align">
         <div class="container">
-            <h2>Inspiring Photos Since 2017</h2>
-            <p>Yep, we just start</p>
+            <h2>Get inspired by Text search or color</h2>
+            {{--<p>Yep, we just start</p>--}}
             <br><br><br>
-            <p class="small">Search for something interesting and help us to get better by doing like on result's photos</p>
-            <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
-                <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
-                <button type="submit">Search</button>
-            </form>
+            <div class="row home-tuto">
+                <div class="col-md-6">
+                    <p class="small">Search for something interesting and help us to get better by doing "Love" on result's photos.</p>
+                    <form  action="/search" method="get" class="GA_HOME_SEARCH_EVENT">
+                        <input type="text"id="homeInputSearch" name="q" placeholder="Concert..."/>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <p class="small">¿Love colors?, the pick four favorite one and see the magic.</p>
+                    @include('site.partials._color_picker')
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="how-it-works">
-    <div class="square">
-        <p class="title">How does it work?</p>
-        <div class="description">
-            <p>By clicking Love on the photos that you think are great, you are helping us to organize really cool photos by color than you can search them by category or color, Is not it great?.</p>
-            <p>There are many photos out there, but you can make inspire yourself and another one with your help.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="square">
+                    <p class="title">HOW DOES IT WORK?</p>
+                    <div class="description">
+                        <p>By clicking "Love" on the photos that you think are great, you are helping us organize these really cool photos by color so you can search them by category or color. Isn't that great?</p>
+                        <p>There are many photos out there, but you can inspire yourself and others with your help.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="square">
+                    <p class="title">HOW CAN I HELP?</p>
+                    <div class="description">
+                        <ul class="global-style">
+                            <li>Search by Text or Color</li>
+                            <li>
+                                Each photo has an icon of a heart, pressed and wait a little bit
+                                <img src="/assets/images/tuto-logo.jpg" alt="Love Photo" class="tuto-photo">
+                            </li>
+                            <li>It's Done, thank you so much for your suppot</li>
+                            {{--<li>If you want to do more, share this website with your friends</li>--}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br><br>
+        <p class="text-center">
+            If you want to do more, share this website with your friends
+        </p>
     </div>
     {{--<p class="description"><strong>{{ env('APP_FULLNAME') }}</strong> use Flickr API <em>(we are working on Instagram right now)</em> to get photos and organized by color, we are just started to get the average color of each photo you like, <strong>more you like more that you help us to get.</strong></p>--}}
 </div>

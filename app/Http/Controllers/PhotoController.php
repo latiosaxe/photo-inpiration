@@ -25,7 +25,7 @@ class PhotoController extends Controller
     public function searchByColor($color){
         $rgb = $color;
         $colors = explode("-", $rgb);
-        $rangeValue = 40;
+        $rangeValue = 25;
 
         $redMIN = 0;
         $greenMIN = 0;
@@ -60,6 +60,7 @@ class PhotoController extends Controller
         $data = [
             'color' => $color,
             'photos' => $photos,
+            'keyword' => 'Color',
         ];
 
         return view('site.sections.own_search', $data);
