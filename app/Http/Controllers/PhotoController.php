@@ -31,6 +31,10 @@ class PhotoController extends Controller
         $greenMIN = 0;
         $blueMIN = 0;
 
+        $redMAX = 255;
+        $greenMAX = 255;
+        $blueMAX = 255;
+
         if($colors[0] - $rangeValue > 0){
             $redMIN = $colors[0] - $rangeValue;
         }
@@ -41,10 +45,20 @@ class PhotoController extends Controller
             $blueMIN = $colors[2] - $rangeValue;
         }
 
+        if($colors[0] + $rangeValue < 255){
+            $redMAX = $colors[0] + $rangeValue;
+        }
+        if($colors[1] + $rangeValue < 255){
+            $greenMAX = $colors[1] + $rangeValue;
+        }
+        if($colors[2] + $rangeValue < 255){
+            $blueMAX = $colors[2] + $rangeValue;
+        }
+
         $images = Color::where('from', 'average')
-            ->whereBetween('red', [ $redMIN, $colors[0] + $rangeValue])
-            ->whereBetween('green', [ $greenMIN, $colors[1] + $rangeValue])
-            ->whereBetween('blue', [ $blueMIN, $colors[2] + $rangeValue])
+            ->whereBetween('red', [ $redMIN, $redMAX])
+            ->whereBetween('green', [ $greenMIN, $greenMAX])
+            ->whereBetween('blue', [ $blueMIN, $blueMAX])
             ->inRandomOrder()
             ->get();
 
