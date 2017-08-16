@@ -618,23 +618,16 @@ document.addEventListener('mouseup', function() {
 });
 
 function changeHex(hex_val) {
-
     var rgb_val = hexToRgb(hex_val);
-
     if (rgb_val !== null) {
-
         var hsl_val = rgbToHsl([rgb_val.r,rgb_val.g,rgb_val.b]),
             hsv_val = rgbToHsv(rgb_val.r,rgb_val.g,rgb_val.b);
-
         color[0] = hsl_val[0];
-
         elements.sat_rect.style.background = "hsl(" + color[0] + ", 100%, 50%)";
-
         elements.hue_picker.style.top = hsl_val[0] / 360 * 100 + "%";
         elements.hue_picker.style.background = "hsl("+hsl_val[0]+", 100%, 50%)";
         elements.sat_picker.style.background = hex_val;
         document.querySelector(".color_preview").style.background = hex_val;
-
         elements.sat_picker.style.left = hsl_val[1] + "%";
         elements.sat_picker.style.top = 100 - ( hsv_val[2] * 100 ) + "%";
 
