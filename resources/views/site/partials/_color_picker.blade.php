@@ -11,7 +11,7 @@
         <div class="bottom">
             <div class="color_preview"></div>
             <input type="text" onkeyup="changeHex(this.value)" value="#C8D594" />
-            <a href="/color/212-212-145" id="searchByColor" class="btn">Buscar</a>
+            <a href="/color/255-0-0" id="searchByColor" class="btn">Buscar</a>
         </div>
     </div>
 </div>
