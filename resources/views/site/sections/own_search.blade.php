@@ -1,7 +1,7 @@
 @extends('site.master')
-@section('title')Photography inspiration by color@stop
-@section('description')Photography inspiration by color@stop
-@section('keywords')photography,inspiration,photo,color@stop
+@section('title')Photography inspiration for {{ $keyword }}@stop
+@section('description')Photography inspiration for {{ $keyword }}@stop
+@section('keywords')photography,inspiration,photo,{{ $keyword }}@stop
 @section('content')
 
     <div class="categories">
