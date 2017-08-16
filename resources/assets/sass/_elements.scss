@@ -324,7 +324,7 @@
                 border: 0;
                 padding: 0 4px;
             }
-            a.btn{
+            .btn{
                 right: 15px;
                 bottom: 14px;
                 position: absolute;
@@ -334,6 +334,12 @@
                 margin-left: 10px;
                 height: 30px;
             }
+
+            button:disabled,
+            button[disabled]{
+                opacity: 0.5;
+            }
+
         }
     }
 }

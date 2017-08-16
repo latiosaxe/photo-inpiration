@@ -233,7 +233,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   padding: 0 4px;
 }
 /* line 327, ../../../resources/assets/sass/_elements.scss */
-.color-container .color_picker_dialog .bottom a.btn {
+.color-container .color_picker_dialog .bottom .btn {
   right: 15px;
   bottom: 14px;
   position: absolute;
@@ -242,6 +242,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .color-container .color_picker_dialog .bottom img {
   margin-left: 10px;
   height: 30px;
+}
+/* line 338, ../../../resources/assets/sass/_elements.scss */
+.color-container .color_picker_dialog .bottom button:disabled,
+.color-container .color_picker_dialog .bottom button[disabled] {
+  opacity: 0.5;
 }
 
 /* line 17, ../../../resources/assets/sass/app.scss */

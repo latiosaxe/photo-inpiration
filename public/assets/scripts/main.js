@@ -36,9 +36,7 @@ $(document).ready(function () {
     });
 
     $(".site").delegate('.searchByColor', 'click', function (event) {
-
         location.href = "/color/"+$(this).data('color');
-
         // var data = {'color': $(this).data('color')};
         // var _token =  $('meta[name="csrf-token"]').attr('content');
         // $.ajax({
@@ -64,6 +62,9 @@ $(document).ready(function () {
         //         });
         //     }
         // });
+    });
+    $(".site").delegate('#searchByColor', 'click', function () {
+        location.href = $(this).data('color');
     });
 
     $(".site").delegate('.result-list li .vote, .color_photo_grid .single .vote', 'click', function (event) {
@@ -504,7 +505,8 @@ function returnPickedColor() {
     console.log(hex_color);
     console.log(rgb_color);
     document.querySelector(".bottom input").value = hex_color.toUpperCase();
-    clickBtn.href = "/color/"+ Math.floor(rgb_color[0]) +"-"+ Math.floor(rgb_color[1]) +"-"+ Math.floor(rgb_color[2]);
+    clickBtn.disabled = false;
+    clickBtn.setAttribute("data-color", "/color/"+ Math.floor(rgb_color[0]) +"-"+ Math.floor(rgb_color[1]) +"-"+ Math.floor(rgb_color[2]));
 }
 
 // function componentToHex(c) {
