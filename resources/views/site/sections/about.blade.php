@@ -31,4 +31,19 @@
 @endsection
 
 @section('scripts')
+
+    <script>
+
+        var client_ID = 'da30bf69ad4b4bd8b57255f84ebb0a8c';
+
+        var feed = new Instafeed({
+            get: 'user',
+            userId: 'USER_ID',
+            accessToken: 'YOUR_ACCESS_TOKEN',
+            filter: function(image) {
+                return image.tags.indexOf('TAG_NAME') >= 0;
+            }
+        });
+        feed.run();
+    </script>
 @endsection
