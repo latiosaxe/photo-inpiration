@@ -9,7 +9,7 @@
         <div class="container">
             <h2>Get inspired by Text search or color</h2>
             {{--<p>Yep, we just start</p>--}}
-            <br><br><br>
+
             <div class="row home-tuto">
                 <div class="col-md-6">
                     <p class="small">Search for something interesting and help us to get better by doing "Love" on result's photos.</p>

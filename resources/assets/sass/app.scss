@@ -53,6 +53,7 @@ body{
 .add{
     width: 100%;
     padding: 40px 0;
+    overflow: hidden;
     .center{
         margin: 0 auto;
         display: inline-block;
@@ -252,6 +253,7 @@ body{
                 font-size: 65px;
                 line-height: 120%;
                 font-family: $font-2;
+                margin-bottom: 40px;
             }
             p{
                 font-size: 32px;
@@ -704,8 +706,10 @@ footer{
 }
 
 @media screen and (max-width: 991px) {
+
     .container{
         .row{
+            margin: 0;
             .col-md-6{
                 width: 100%;
                 margin-bottom: 20px;
@@ -725,7 +729,7 @@ footer{
                 }
             }
         }
-        .popular{
+        .popular, .about{
             display: none;
         }
     }
@@ -749,6 +753,10 @@ footer{
     }
     .result-list li{
         width: 50%;
+        &.amazon-iframe{
+            width: 100%;
+            padding: 15px 0;
+        }
     }
     .resume-search{
         padding: 40px 15px;
@@ -759,11 +767,13 @@ footer{
 
     .site .welcome{
         height: auto;
+        padding: 20px 0;
         .vertical-align{
             top: 0;
             @include transform(translateY(0));
             h2{
                 font-size: 2.5rem;
+                margin-bottom: 20px;
             }
         }
     }
@@ -773,6 +783,13 @@ footer{
         height: 100%;
 
         max-width: 700px;
+    }
+    .how-it-works .square{
+        padding: 15px;
+    }
+
+    .color_photo_grid .single{
+        width: 100%;
     }
 }
 
