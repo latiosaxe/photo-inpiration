@@ -188,14 +188,14 @@ var _generateResurlts = function (argumentm, limit, page) {
             $.each(data.photos.photo, function (index, value) {
                 if(actual_add_position == (limit_add)){
                     // $("#searchResult .result-list").append('<li class="add leaderboard"><div class="center">'+ GlobalAdd +'</div></li>');
-                    $("#searchResult .result-list").append('<li class="amazon-iframe"> '+ amazonBanners[actualBanner] +'</li>');
+                    $("#searchResult .result-list").last().append('<li class="amazon-iframe"> '+ amazonBanners[actualBanner] +'</li>');
                     actualBanner ++;
                     if(actualBanner >= ( amazonBanners.length)){
                         actualBanner = 0;
                     }
                     actual_add_position = -4;
                 }else{
-                    $("#searchResult .result-list").append('' +
+                    $("#searchResult .result-list").last().append('' +
                         '<li class="wrapper" itemscope itemtype="http://schema.org/ImageObject">' +
                         '<div class="vote">' +
                         '<div class="vote-icon normal"></div>'+
