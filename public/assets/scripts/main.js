@@ -158,7 +158,7 @@ $(document).ready(function () {
 
 });
 
-var _generateResurlts = function (argumentm, limit) {
+var _generateResurlts = function (argumentm, limit, page) {
     $.ajax({
         method: 'GET',
         url: 'https://www.flickr.com/services/rest',
@@ -170,45 +170,62 @@ var _generateResurlts = function (argumentm, limit) {
             searchResult_type: 1,  //Only photos
             format: 'json',
             nojsoncallback: 1,
-            per_page: limit
+            per_page: limit,
+            page: page
         }
     }).done(function(data) {
-        console.log(data);
-
-        $("#searchResult").html('<div class="resume-search"><div class="container"><p>Results to the search: <strong>'+argument+'</strong></p></div></div>');
-        $("#searchResult").append('<ul class="result-list"></ul>');
-
-        $.each(data.photos.photo, function (index, value) {
-            if(actual_add_position == (limit_add)){
-                // $("#searchResult .result-list").append('<li class="add leaderboard"><div class="center">'+ GlobalAdd +'</div></li>');
-                $("#searchResult .result-list").append('<li class="amazon-iframe"> '+ amazonBanners[actualBanner] +'</li>');
-                actualBanner ++;
-                if(actualBanner >= ( amazonBanners.length)){
-                    actualBanner = 0;
-                }
-                actual_add_position = -4;
+        // console.log(data);
+        
+        if(data.photos.photo.length > 0){
+            if(page > 1){
+                $("#searchResult").append('<ul class="result-list"></ul>');
             }else{
-                $("#searchResult .result-list").append('' +
-                    '<li class="wrapper" itemscope itemtype="http://schema.org/ImageObject">' +
+                $("#searchResult").html('<div class="resume-search"><div class="container"><p>Results to the search: <strong>'+argument+'</strong></p></div></div>');
+                $("#searchResult").append('<ul class="result-list"></ul>');
+                $(".moreSearch").removeClass('hidden');
+            }
+
+            $.each(data.photos.photo, function (index, value) {
+                if(actual_add_position == (limit_add)){
+                    // $("#searchResult .result-list").append('<li class="add leaderboard"><div class="center">'+ GlobalAdd +'</div></li>');
+                    $("#searchResult .result-list").append('<li class="amazon-iframe"> '+ amazonBanners[actualBanner] +'</li>');
+                    actualBanner ++;
+                    if(actualBanner >= ( amazonBanners.length)){
+                        actualBanner = 0;
+                    }
+                    actual_add_position = -4;
+                }else{
+                    $("#searchResult .result-list").append('' +
+                        '<li class="wrapper" itemscope itemtype="http://schema.org/ImageObject">' +
                         '<div class="vote">' +
-                            '<div class="vote-icon normal"></div>'+
-                            '<div class="loading">'+
-                                '<div class="bubble-1"></div>'+
-                                '<div class="bubble-2"></div>'+
-                            '</div>'+
+                        '<div class="vote-icon normal"></div>'+
+                        '<div class="loading">'+
+                        '<div class="bubble-1"></div>'+
+                        '<div class="bubble-2"></div>'+
+                        '</div>'+
                         '</div>'+
                         '<img style="visibility: hidden; height: 0; width: 0; position: absolute;" src="https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg" id="imageData" itemprop="contentUrl">'+
                         '<a class="photo" data-id="'+ value.id +'" href="https://www.flickr.com/photos/'+value.owner+'/'+ value.id+'" target="_blank" style="background-image: url(https://farm'+value.farm+'.staticflickr.com/'+value.server+'/'+value.id+'_'+value.secret+'_b.jpg+)">' +
                         '<p itemprop="description">' +
-                            ''+value.title+'' +
+                        ''+value.title+'' +
                         '</p>' +
                         '</a>' +
                         // '<a href="https://www.flickr.com/photos/'+value.owner+'/" class="author" target="_blank"><p>Owner</p></a>'+
-                    '</li>' +
-                    '');
+                        '</li>' +
+                        '');
+                }
+                actual_add_position ++;
+            });   
+        }else{
+            $(".error-search").removeClass('hidden');
+            if(page > 1){
+                $(".moreSearch").addClass('hidden');
+                $(".error-search p").text('That\'s it, there is no more photos, try with another argument.')
+            }else{
+                $("#searchResult").addClass('hidden');
+                $(".boxLoading").addClass('hidden');
             }
-            actual_add_position ++;
-        });
+        }
         // (adsbygoogle = window.adsbygoogle || []).push({});
     });
 };
@@ -218,9 +235,7 @@ var _makeSearch = function _makeSearch(argument) {
     $(".site header .relative form").submit();
 };
 
-
 var _ownerPhoto = function _ownerPhoto(argument) {
-    console.log(argument);
     $.ajax({
         method: 'GET',
         url: 'https://www.flickr.com/services/rest',
@@ -233,7 +248,6 @@ var _ownerPhoto = function _ownerPhoto(argument) {
         }
     }).done(function(data) {
         var info = data.photo;
-        console.log(info);
 
         var name = '';
         if(info.owner.realname){
@@ -265,8 +279,6 @@ var _ownerPhoto = function _ownerPhoto(argument) {
         '</div>');
     });
 };
-
-
 
 
 function rgbToHsv(r, g, b) {

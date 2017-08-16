@@ -13,6 +13,10 @@ $font-2: 'Quicksand', sans-serif;
 
 @import "elements";
 
+.hidden{
+    display: none !important;
+}
+
 html{
     *, *:before, *:after {
         -webkit-box-sizing: border-box;
@@ -582,6 +586,7 @@ body{
     }
 }
 
+
 .searchByColor{
     z-index: 2;
     cursor: pointer;
@@ -590,6 +595,23 @@ body{
     &:hover{
         z-index: 5;
         box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+.moreSearch{
+    margin-top: 20px;
+    button{
+        margin: 0 auto;
+        display: block;
+    }
+}
+.error-search{
+    margin: 50px 0 20px;
+    text-align: center;
+    p{
+        margin: 0;
+        font-size: 18px;
+        line-height: 110%;
     }
 }
 
