@@ -46,7 +46,6 @@
         });
 
 
-
         $(".moreSearch").on('click', function () {
             init = init + 1;
             _generateResurlts(argument, 42, init);

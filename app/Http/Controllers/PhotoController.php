@@ -59,9 +59,10 @@ class PhotoController extends Controller
             ->whereBetween('red', [ $redMIN, $redMAX])
             ->whereBetween('green', [ $greenMIN, $greenMAX])
             ->whereBetween('blue', [ $blueMIN, $blueMAX])
-            ->inRandomOrder()
+            ->orderBy('votes')
             ->get();
 
+        //            ->inRandomOrder()
 
         $photos = array();
         foreach ($images as $image){
