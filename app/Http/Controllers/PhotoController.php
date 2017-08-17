@@ -27,17 +27,13 @@ class PhotoController extends Controller
         $colors = explode("-", $rgb);
         $rangeValue = 25;
 
+        $redMIN = 0;
+        $greenMIN = 0;
+        $blueMIN = 0;
 
-        $limitTemporalMIN = 0;
-        $limitTemporalMAX = 235;
-
-        $redMIN = $limitTemporalMIN;
-        $greenMIN = $limitTemporalMIN;
-        $blueMIN = $limitTemporalMIN;
-
-        $redMAX = $limitTemporalMAX;
-        $greenMAX = $limitTemporalMAX;
-        $blueMAX = $limitTemporalMAX;
+        $redMAX = 255;
+        $greenMAX = 255;
+        $blueMAX = 255;
 
         if($colors[0] - $rangeValue > 0){
             $redMIN = $colors[0] - $rangeValue;
@@ -49,13 +45,13 @@ class PhotoController extends Controller
             $blueMIN = $colors[2] - $rangeValue;
         }
 
-        if($colors[0] + $rangeValue < 235){
+        if($colors[0] + $rangeValue < 255){
             $redMAX = $colors[0] + $rangeValue;
         }
-        if($colors[1] + $rangeValue < 235){
+        if($colors[1] + $rangeValue < 255){
             $greenMAX = $colors[1] + $rangeValue;
         }
-        if($colors[2] + $rangeValue < 235){
+        if($colors[2] + $rangeValue < 255){
             $blueMAX = $colors[2] + $rangeValue;
         }
 
