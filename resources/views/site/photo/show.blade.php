@@ -1,5 +1,5 @@
 @extends('site.master')
-@section('title')Photography Inspiration | photography is art @stop
+@section('title'){{ $photo->title }} | photography is art @stop
 @section('description')Best website for photography inspiration, photography is art, photography is all @stop
 @section('keywords')photography,inspiration,photo @stop
 
@@ -9,7 +9,7 @@
         <div class="color_photo_grid single-grid">
             <div class="single wrapper">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="relative photo-wrapper">
                             <div class="vote">
                                 <span>{{ $photo->votes }}</span><div class="vote-icon normal"></div>
@@ -18,12 +18,13 @@
                                     <div class="bubble-2"></div>
                                 </div>
                             </div>
-                            <div class="photo" data-id="{{ $photo->uid }}" style="background-image: url('{{ $photo->photo }}')">
+                            <div class="photo" data-id="{{ $photo->uid }}">
+                                <img src="{{ $photo->photo }}" alt="{{ $photo->title }}">
                                 <p> {{ $photo->title }} </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="info">
                             <div class="title"><h2>{{ $photo->title }}</h2></div>
                             <div class="description">
