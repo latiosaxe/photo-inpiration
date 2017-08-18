@@ -21,6 +21,17 @@ class PhotoController extends Controller
 
 //        $this->searchByColor();
     }
+    public function show($id){
+        $photo = Photo::where('id', $id)->first();
+        $photo->increment('views');
+        $data = [
+            'photo' => $photo,
+        ];
+        return view('site.photo.show', $data);
+
+
+//        $this->searchByColor();
+    }
 
     public function searchByColor($color){
         $rgb = $color;

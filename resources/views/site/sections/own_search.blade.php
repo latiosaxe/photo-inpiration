@@ -24,7 +24,7 @@
                         <div class="bubble-2"></div>
                     </div>
                 </div>
-                <a class="photo" data-id="{{ $photo->uid }}" href="{{ $photo->user_profile }}" target="_blank" style="background-image: url('{{ $photo->photo }}')">
+                <a class="photo" data-id="{{ $photo->uid }}" href="/photo/{{ $photo->id }}" style="background-image: url('{{ $photo->photo }}')">
                     <p> {{ $photo->title }} </p>
                 </a>
                 <a href="{{ $photo->user_profile }}" class="author" target="_blank">

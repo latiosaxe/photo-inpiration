@@ -24,3 +24,4 @@ Route::get('/privacy',        function () {return view('site.sections.privacy');
 Route::get('search',              'SearchController@search');
 Route::post('/new_vote',          'VoteController@store');
 Route::get('/color/{color}', ['as' => 'color', 'uses' => 'PhotoController@searchByColor']);
+Route::get('/photo/{id}', ['as' => 'id', 'uses' => 'PhotoController@show']);

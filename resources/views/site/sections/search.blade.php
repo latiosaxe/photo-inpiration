@@ -21,7 +21,6 @@
         </p>
     </div>
 
-
     <div class="error-search hidden">
         <p>Ups!, its seem that no one knows about it, try with another argument please.</p>
     </div>

@@ -503,6 +503,60 @@ body{
             }
         }
     }
+    &.single-grid{
+        .single{
+            width: 100%;
+            box-shadow: 0 0 0 0;
+            .photo-wrapper{
+
+            }
+            .info{
+                font-size: 16px;
+                position: relative;
+                .title{
+                    font-size: 2.2rem;
+                    line-height: 120%;
+                    margin-bottom: 20px;
+                }
+                .description{
+                    margin-bottom: 20px;
+                }
+                .colors{
+                    font-size: 18px;
+                    p{
+                        display: block;
+                        position: relative;
+                        margin-bottom: 20px;
+                        span{
+                            display: inline-block;
+                            vertical-align: middle;
+                            position: static;
+                            &.color_block{
+                                width: 50px;
+                                height: 40px;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    .average{
+                        p{
+                            span{
+                                width: 100%;
+                                display: block;
+                                margin-bottom: 20px;
+                            }
+                        }
+                    }
+                    .palette{
+
+                    }
+                }
+            }
+            &:hover{
+                @include box-shadow(0 0 0 rgba(0,0,0,0));
+            }
+        }
+    }
 }
 
 .editorial{
