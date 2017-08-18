@@ -24,8 +24,16 @@ class PhotoController extends Controller
     public function show($id){
         $photo = Photo::where('id', $id)->first();
         $photo->increment('views');
+
+
+        $allPhotos = Photo::where('active', 1)
+            ->where('id', '!=' , $id)
+            ->orderBy('votes', 'desc')->take(60)->get();
+        $photos = $allPhotos->random(9);
+
         $data = [
             'photo' => $photo,
+            'photos' => $photos,
         ];
         return view('site.photo.show', $data);
 
@@ -71,6 +79,7 @@ class PhotoController extends Controller
             ->whereBetween('green', [ $greenMIN, $greenMAX])
             ->whereBetween('blue', [ $blueMIN, $blueMAX])
             ->inRandomOrder()
+            ->limit(100)
             ->get();
 
 
