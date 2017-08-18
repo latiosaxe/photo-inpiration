@@ -1,6 +1,8 @@
 @import 'compass/reset';
 @import 'compass/css3';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Quicksand');
+
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One:400,700|Quicksand');
 
 $primary-color: #ccbe97;
 $secondary-color: #6abfa5;
@@ -8,7 +10,7 @@ $light-color: #f6f6f6;
 $dark-color: #2f2f2f;
 $height-header: 80px;
 
-$font-1: 'Open Sans', sans-serif;
+$font-1: 'Josefin Sans', sans-serif;
 $font-2: 'Quicksand', sans-serif;
 
 @import "elements";
@@ -50,7 +52,7 @@ body{
         .col-md-12{
             width: 100%;
             float: none;
-            padding: 0 15px; 
+            padding: 0 15px;
         }
     }
 }
@@ -522,6 +524,7 @@ body{
             }
             .info{
                 font-size: 16px;
+                margin-top: 20px; 
                 position: relative;
                 .title{
                     font-size: 2.2rem;

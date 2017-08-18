@@ -1,5 +1,5 @@
 @extends('site.master')
-@section('title'){{ $photo->title }} | photography is art @stop
+@section('title')Photography inspiration | {{ $photo->title }} @stop
 @section('description')Best website for photography inspiration, photography is art, photography is all @stop
 @section('keywords')photography,inspiration,photo @stop
 
