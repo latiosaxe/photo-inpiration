@@ -12,3 +12,5 @@ yarn-error.log
 .env
 .sass-cache/
 .sass-cache/*
+resources/assets/.sass-cache/
+resources/assets/.sass-cache/*
