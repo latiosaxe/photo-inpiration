@@ -8,7 +8,11 @@ class Photo extends Model
 {
     protected $table = 'photos';
     protected $fillable = [
-        'uid', 'title', 'description', 'photo', 'votes', 'category', 'user_name', 'user_nickname', 'user_location', 'user_profile', 'average_color', 'palette_color'
+        'uid', 'title', 'description', 'photo', 'votes', 'category', 'user_name', 'user_nickname', 'user_location', 'user_profile', 'average_color', 'palette_color',
+        'views', 'watermark', 'user_id', 'featured', 'gallery_id'
     ];
 
+    public function gallery(){
+        return $this->belongsTo('App\Gallery');
+    }
 }

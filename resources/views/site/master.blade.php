@@ -118,7 +118,7 @@ if (isset($seo)){
             <div class="right">
                 <div class="search">
                     <form  action="/search" method="get" class="GA_SEARCH_EVENT">
-                        <input type="text" id="globalInputSearch" name="q" placeholder="Concert..." required="required"/>
+                        <input type="text" id="globalInputSearch" name="q" placeholder="Ej. Concert..." required="required"/>
                         <button type="submit">Search</button>
                     </form>
                 </div>
@@ -126,10 +126,14 @@ if (isset($seo)){
                     @if(Auth::check())
                         <div class="avatar">
                             <a href="/profile"></a>
+                            <ul>
+                                <li><a href="/">Profile</a></li>
+                                <li><a href="/logout">Log out</a></li>
+                            </ul>
                         </div>
                     @else
                         <div class="login">
-                            <a href="/login" class="btn transparent">Login</a>
+                            <a href="/login" class="btn transparent">Log In</a>
                         </div>
                     @endif
                 </div>

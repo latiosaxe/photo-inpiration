@@ -124,8 +124,8 @@ class CreateRawrTrables extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->default(0);
-            $table->integer('name')->default(0);
-            $table->integer('description')->default(0);
+            $table->string('name')->default(0);
+            $table->text('description')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamps();
         });
