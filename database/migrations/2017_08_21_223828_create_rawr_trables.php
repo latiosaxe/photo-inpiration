@@ -128,13 +128,25 @@ class CreateRawrTrables extends Migration
             $table->integer('name')->default(0);
             $table->integer('description')->default(0);
             $table->boolean('active')->default(0);
+            $table->timestamps();
         });
 
         Schema::table('photos', function (Blueprint $table) {
+            $table->string('watermark')->nullable();
             $table->integer('user_id')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('gallery_id')->default(0);
             $table->boolean('active')->default(0);
+        });
+        Schema::create('templates', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->string('preview')->nullable();
+            $table->string('color')->nullable();
+            $table->string('font')->nullable();
+            $table->integer('premium')->default(0);
+            $table->timestamps();
         });
     }
 
