@@ -71,6 +71,14 @@ class CreateRawrTrables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('type_contents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('type')->unique();
+            $table->string('table_name')->nullable();
+            $table->boolean('active')->default(0);
+            $table->timestamps();
+        });
+
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id')->default(1);
@@ -112,6 +120,21 @@ class CreateRawrTrables extends Migration
             $table->integer('user_id_to')->default(0);
             $table->boolean('active')->default(0);
             $table->timestamps();
+        });
+
+        Schema::create('galleries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->default(0);
+            $table->integer('name')->default(0);
+            $table->integer('description')->default(0);
+            $table->boolean('active')->default(0);
+        });
+
+        Schema::table('photos', function (Blueprint $table) {
+            $table->integer('user_id')->default(0);
+            $table->integer('featured')->default(0);
+            $table->integer('gallery_id')->default(0);
+            $table->boolean('active')->default(0);
         });
     }
 
