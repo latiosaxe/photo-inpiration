@@ -138,6 +138,7 @@ class CreateRawrTrables extends Migration
             $table->integer('gallery_id')->default(0);
             $table->boolean('active')->default(0);
         });
+        
         Schema::create('templates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
