@@ -8,7 +8,8 @@ $primary-color: #ccbe97;
 $secondary-color: #6abfa5;
 $light-color: #f6f6f6;
 $dark-color: #2f2f2f;
-$height-header: 80px;
+$dark-light-color: #7d7d7d;
+$height-header: 70px;
 
 $font-1: 'Josefin Sans', sans-serif;
 $font-2: 'Quicksand', sans-serif;
@@ -101,25 +102,39 @@ body{
         z-index: 9;
         width: 100%;
         position: fixed;
-        color: #FFF;
+        color: $dark-color;
         height: $height-header;
-        background: $dark-color;
-        @include box-shadow(0 0 10px rgba(0,0,0,0.9));
+        //background: $dark-color;
+        @include box-shadow(0 0 10px rgba(0,0,0,0.1));
+        border-bottom: 1px solid $dark-light-color;
+        background: rgba(255,255,255,1);
+        background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+        background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+        background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+        background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
         .relative{
-            padding: 0 20px;
+            width: 100%;
+            padding: 0 10px;
             position: relative;
             height: $height-header;
             .logo{
                 height: 100%;
+                padding: 8px 0;
                 vertical-align: middle;
                 display: inline-block;
                 a{
+                    width: 120px;
                     height: 100%;
                     color: #FFF;
+                    background: #eaeaea;
                     overflow: hidden;
-                    padding-top: 5px;
                     display: inline-block;
                     text-decoration: none;
+                    background: center center no-repeat;
+                    background-size: cover;
                     img{
                         height: 55%;
                         margin: 3.3% 10px 5.3%;
@@ -127,9 +142,9 @@ body{
                         display: inline-block;
                     }
                     h1{
-                        //top: -200px;
-                        //left: -200px;
-                        //position: absolute;
+                        top: -200px;
+                        left: -200px;
+                        position: absolute;
                         color: #FFF;
                         padding: 4px 0;
                         font-size: 24px;
@@ -141,106 +156,143 @@ body{
                 }
             }
 
-            .about{
-                float: right;
-                color: #FFF;
-                margin-top: 25px;
-                margin-right: 330px;
-                padding: 5px 10px;
-                vertical-align: middle;
-                display: inline-block;
-                position: relative;
-                a{
+            .middle{
+                display: none;
+                .about{
+                    float: right;
                     color: #FFF;
-                    display: block;
-                    font-size: 20px;
+                    margin-top: 25px;
+                    margin-right: 330px;
+                    padding: 5px 10px;
+                    vertical-align: middle;
+                    display: inline-block;
                     position: relative;
-                    text-decoration: none;
-                }
-            }
-            .popular{
-                float: right;
-                color: #FFF;
-                margin-top: 25px;
-                margin-right: 330px;
-                padding: 5px 10px;
-                vertical-align: middle;
-                display: inline-block;
-                position: relative;
-                span{
-                    display: block;
-                    font-size: 20px;
-                    position: relative;
-                    small{
-                        font-size: 12px;
-                        display: inline-block;
-                        vertical-align: middle;
-                    }
-                }
-
-                ul{
-                    display: none;
-                    padding: 10px 0;
-                    position: absolute;
-                    li{
-                        cursor: pointer;
-                        padding: 5px 10px;
-                        background-color: $dark-color;
-                        span{
-                            display: block;
-                            line-height: 130%;
-                            padding: 5px 10px;
-                        }
-                        &:hover{
-                            background: #000;
-                        }
-                    }
-                }
-                &:hover{
-                    ul{
+                    a{
+                        color: #FFF;
                         display: block;
+                        font-size: 20px;
+                        position: relative;
+                        text-decoration: none;
+                    }
+                }
+                .popular{
+                    float: right;
+                    color: #FFF;
+                    margin-top: 25px;
+                    margin-right: 330px;
+                    padding: 5px 10px;
+                    vertical-align: middle;
+                    display: inline-block;
+                    position: relative;
+                    span{
+                        display: block;
+                        font-size: 20px;
+                        position: relative;
+                        small{
+                            font-size: 12px;
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    ul{
+                        display: none;
+                        padding: 10px 0;
+                        position: absolute;
+                        li{
+                            cursor: pointer;
+                            padding: 5px 10px;
+                            background-color: $dark-color;
+                            span{
+                                display: block;
+                                line-height: 130%;
+                                padding: 5px 10px;
+                            }
+                            &:hover{
+                                background: #000;
+                            }
+                        }
+                    }
+                    &:hover{
+                        ul{
+                            display: block;
+                        }
                     }
                 }
             }
 
-
-            form{
-                top: 15px;
-                right: 20px;
-                font-size: 0;
-                position: absolute;
-                input, button{
-                    margin: 0;
-                    padding: 10px;
-                    font-size: 18px;
-                    border-radius: 0;
-                    color: $light-color;
+            .right{
+                float: right;
+                padding: 12px 0;
+                .user, .search{
                     display: inline-block;
                     vertical-align: middle;
-                    background: transparent;
-                    border: 2px solid $light-color;
                 }
-                input{
-                    outline: none;
-                    color: $light-color;
-                    &::-webkit-input-placeholder {
-                        color: $light-color;
-                    }
-                    &::-moz-placeholder {
-                        color: $light-color;
-                    }
-                    &:-ms-input-placeholder {
-                        color: $light-color;
-                    }
-                    &:-moz-placeholder {
-                        color: $light-color;
+                .search{
+                    margin-right: 15px;
+                    form{
+                        font-size: 0;
+                        border-radius: 40px;
+                        border: 1px solid $dark-light-color;
+                        input, button{
+                            margin: 0;
+                            border: 0;
+                            padding: 10px;
+                            font-size: 18px;
+                            border-radius: 0;
+                            color: $dark-light-color;
+                            display: inline-block;
+                            vertical-align: middle;
+                            background: transparent;
+                        }
+                        input{
+                            outline: none;
+                            color: $dark-light-color;
+                            &::-webkit-input-placeholder {
+                                color: $dark-light-color;
+                            }
+                            &::-moz-placeholder {
+                                color: $dark-light-color;
+                            }
+                            &:-ms-input-placeholder {
+                                color: $dark-light-color;
+                            }
+                            &:-moz-placeholder {
+                                color: $dark-light-color;
+                            }
+                        }
+                        button{
+                            outline: none;
+                            color: $primary-color;
+                            background: transparent;
+                        }
                     }
                 }
-                button{
-                    color: #FFF;
-                    background: $dark-color;
+                .user{
+                    .avatar{
+                        a{
+                            width: 45px;
+                            height: 45px;
+                            display: inline-block;
+                            vertical-align: middle;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            border: 1px solid $primary-color;
+                            background: $dark-light-color;
+                        }
+                    }
+                    .login{
+                        display: inline-block;
+                        vertical-align: middle;
+                        .btn{
+                            cursor: pointer;
+                            color: $primary-color;
+                            background: transparent;
+                        }
+                    }
                 }
             }
+
         }
     }
     .fake-header{

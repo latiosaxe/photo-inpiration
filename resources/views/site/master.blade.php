@@ -5,6 +5,7 @@ $_seo = [
     'image'         => '/assets/images/social-share.jpg',
     'domain'        => env('APP_URL'),
     'canonical'     => URL()->current(),
+    'keywords'      => 'photography, inspiration, photo, inspiration photographers'
 ];
 if (isset($seo)){
     $seo = (object)array_merge( $_seo, (array)$seo);
@@ -16,9 +17,23 @@ if (isset($seo)){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>@yield('title')</title>
-    <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords'), inspiration photographers">
+    @if (trim($__env->yieldContent('title')))
+        <title>@yield('title')</title>
+    @else
+        <title>{{ $seo->title }}</title>
+    @endif
+    @if (trim($__env->yieldContent('description')))
+        <meta name="description" content="@yield('description')">
+    @else
+        <meta name="description" content="{{ $seo->description }}">
+    @endif
+    @if (trim($__env->yieldContent('keywords')))
+        <meta name="keywords" content="@yield('keywords'), inspiration photographers">
+    @else
+        <meta name="keywords" content="{{ $seo->keywords }}">
+    @endif
+
+
 
     <link rel="stylesheet" href="/assets/css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,32 +92,47 @@ if (isset($seo)){
     <header>
         <div class="relative">
             <div class="logo">
-                <a href="/">
-                    <img src="/assets/images/photo_inspiration_logo_white.png" alt="Photo Inspiration">
+                <a href="/" style="background-image: url('/assets/images/photo_inspiration_logo_white.png')">
+                    {{--<img src="" alt="Photo Inspiration">--}}
                     <h1>{{ env('APP_FULLNAME') }}</h1>
                 </a>
             </div>
-            <div class="about">
-                <a href="/how-it-works">How it works?</a>
+            <div class="middle">
+                <div class="about">
+                    <a href="/how-it-works">How it works?</a>
+                </div>
+                <div class="popular">
+                    <span>Popular <small>▼</small></span>
+                    <?php
+                    $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise'];
+                    ?>
+                    <ul>
+                        @foreach($popular as $item)
+                            <li>
+                                <span data-search="{{ $item }}">{{ $item }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-            <div class="popular">
-                <span>Popular <small>▼</small></span>
-                <?php
-                $popular = ['animals', 'beach', 'flower', 'nyc', 'berlin', 'sunrise'];
-                ?>
-                <ul>
-                    @foreach($popular as $item)
-                        <li>
-                            <span data-search="{{ $item }}">{{ $item }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="search">
-                <form  action="/search" method="get" class="GA_SEARCH_EVENT">
-                    <input type="text" id="globalInputSearch" name="q" placeholder="Concert..." required="required"/>
-                    <button type="submit">Search</button>
-                </form>
+            <div class="right">
+                <div class="search">
+                    <form  action="/search" method="get" class="GA_SEARCH_EVENT">
+                        <input type="text" id="globalInputSearch" name="q" placeholder="Concert..." required="required"/>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="user">
+                    @if(Auth::check())
+                        <div class="avatar">
+                            <a href="/profile"></a>
+                        </div>
+                    @else
+                        <div class="login">
+                            <a href="/login" class="btn transparent">Login</a>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </header>

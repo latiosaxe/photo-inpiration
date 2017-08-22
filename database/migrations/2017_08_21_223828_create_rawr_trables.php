@@ -32,7 +32,6 @@ class CreateRawrTrables extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
 
-            $table->string('city')->nullable();
             $table->boolean('can_travel')->default(0);
             $table->boolean('premium')->default(0);
             $table->boolean('template_id')->default(0);
@@ -136,7 +135,6 @@ class CreateRawrTrables extends Migration
             $table->integer('user_id')->default(0);
             $table->integer('featured')->default(0);
             $table->integer('gallery_id')->default(0);
-            $table->boolean('active')->default(0);
         });
         
         Schema::create('templates', function (Blueprint $table) {
