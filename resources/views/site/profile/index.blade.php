@@ -68,18 +68,26 @@
                         {{--{{ dd($element) }}--}}
                     {{--@endforeach--}}
                     <div class="row">
-                    @if($user->galleries)
-                    @foreach($user->galleries as $gallery)
+                    @if($galleries)
+                    @foreach($galleries as $gallery)
                         <div class="col-md-6">
                             <div class="single-gallery">
                                 <div class="preview">
-                                    <div class="image" style="background-image: url('{{ $gallery->photos[0]->photo }}')"></div>
+                                    {{--<div class="image" style="background-image: url('{{ $gallery->photos[0]->photo }}')"></div>--}}
+                                    <div class="image" style="background-image: url('/assets/images/profile.png')"></div>
                                 </div>
                                 <div class="name">
                                     <p>{{ $gallery->name }}</p>
-                                    <span>{{ count($gallery->photos ) }} photos</span>
+                                    <span>{{ $gallery->photos }} photos</span>
                                 </div>
                             </div>
+                            <p>Comments</p>
+                            @if($gallery->content)
+                                @foreach($gallery->content->comments as $comment)
+                                    <p>{{ $comment->text }}</p>
+                                    <p>{{ $comment->user->username }}</p>
+                                @endforeach
+                            @endif
                         </div>
                     @endforeach
                     @endif

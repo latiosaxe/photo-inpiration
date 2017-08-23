@@ -20,4 +20,9 @@ class User extends Authenticatable
     public function galleries(){
         return $this->hasMany('App\Gallery');
     }
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+
 }

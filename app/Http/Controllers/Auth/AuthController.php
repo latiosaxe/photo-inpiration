@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
+
     public function login(){
         return view('site.auth.login');
     }
@@ -33,9 +34,17 @@ class AuthController extends Controller
         $status = 400;
         $data = (object)['message' => ''];
 
-        $username = $request->input('username', '');
+        $inputs = $request->all();
+
+        $validator = $this->validate($request, [
+            'username' => 'required|unique:users|max:80',
+            'email' => 'required|unique:users|email',
+            'password' => 'required|min:8',
+        ]);
+
+        $username = strip_tags($request->input('username', ''));
         $password = $request->input('password', '');
-        $email = $request->input('email', '');
+        $email = strip_tags($request->input('email', ''));
 
         try {
             $user = User::where('name','=', $username)->first();
@@ -47,6 +56,7 @@ class AuthController extends Controller
                     'password' => bcrypt($password),
                 ];
                 $newUser = User::create($userData);
+                Auth::attempt(['username' => $username, 'password' => $password]);
             }
 
             $status = 200;

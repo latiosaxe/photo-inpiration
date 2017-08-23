@@ -12,7 +12,11 @@ class Photo extends Model
         'views', 'watermark', 'user_id', 'featured', 'gallery_id'
     ];
 
-    public function gallery(){
-        return $this->belongsTo('App\Gallery');
+    public function galleries(){
+        return $this->hasMany('App\Gallery');
+    }
+
+    public function content(){
+        return $this->hasOne('App\Content', 'type_id');
     }
 }

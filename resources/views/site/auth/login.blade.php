@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="email" id="new_email" class="form-control" placeholder="Correo">
+                                    <input type="text" id="new_email" class="form-control" placeholder="Correo">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -109,12 +109,15 @@
                     url: '/register',
                     data: data,
                     type: 'post',
+                    dataType: 'json',
                     success: function () {
                         alert("Your are ready, please login");
                         document.location.href = '/profile'
                     },
-                    error: function () {
-                        alert("Ups!, it seems like something is wrong, check your value");
+                    error: function (error) {
+//                        var error = error.responseText
+                        console.log(error.responseText);
+//                        alert("Ups!, it seems like something is wrong, check your value");
                     }
                 })
             });

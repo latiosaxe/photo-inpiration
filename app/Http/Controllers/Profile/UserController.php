@@ -11,10 +11,12 @@ class UserController extends Controller
 {
     public function profile(){
         $user = Auth::user();
+        $galleries = $user->galleries;
 
-        $galleries = array();
-        foreach ($user->galleries as $gallery){
-            $user->galleries->photos = Photo::where('gallery_id', $gallery->id)->get();
+//        Photo::where('gallery_id', $gallery->id)->get();
+
+        foreach ($galleries as $gallery){
+            $gallery->photos = count($gallery->photos);
         }
 
         $data = [

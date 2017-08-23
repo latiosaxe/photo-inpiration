@@ -22,9 +22,10 @@ class PhotoController extends Controller
 //        $this->searchByColor();
     }
     public function show($id){
-        $photo = Photo::where('id', $id)->first();
+        $photo = Photo::find($id);
         $photo->increment('views');
 
+        $comments = $photo->content->comments;
 
         $allPhotos = Photo::where('active', 1)
             ->where('id', '!=' , $id)
@@ -34,6 +35,7 @@ class PhotoController extends Controller
         $data = [
             'photo' => $photo,
             'photos' => $photos,
+            'comments' => $comments
         ];
         return view('site.photo.show', $data);
 

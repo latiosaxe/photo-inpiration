@@ -72,6 +72,20 @@
 
     <div class="categories">
         <div class="container">
+            <h3>Comments</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach($comments as $comment)
+                        {{ $comment->text }}
+                        {{ $comment->user->username }}
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="container">
             <h3>Check this out</h3>
         </div>
     </div>
