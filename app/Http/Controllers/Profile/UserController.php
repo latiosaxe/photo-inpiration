@@ -7,8 +7,8 @@ use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
-{
+class UserController extends Controller{
+
     public function profile(){
         $user = Auth::user();
         $galleries = $user->galleries;
@@ -16,7 +16,9 @@ class UserController extends Controller
 //        Photo::where('gallery_id', $gallery->id)->get();
 
         foreach ($galleries as $gallery){
+//            dd($gallery->photos[0]->photo->photo);
             $gallery->photos = count($gallery->photos);
+            $gallery->cover = '';
         }
 
         $data = [

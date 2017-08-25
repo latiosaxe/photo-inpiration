@@ -73,7 +73,7 @@
                         <div class="col-md-6">
                             <div class="single-gallery">
                                 <div class="preview">
-                                    {{--<div class="image" style="background-image: url('{{ $gallery->photos[0]->photo }}')"></div>--}}
+{{--                                    <div class="image" style="background-image: url('{{ $gallery->cover }}')"></div>--}}
                                     <div class="image" style="background-image: url('/assets/images/profile.png')"></div>
                                 </div>
                                 <div class="name">
