@@ -130,5 +130,32 @@
         $(".single-gallery .add .msg .btn").on('click', function () {
             $(this).closest('.msg').addClass('byebye').closest(".single-gallery").find('.create').removeClass('byebye');
         });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $("#createGal").on('submit', function(){
+            event.preventDefault();
+            var data = {};
+            data.name = $("#name").val();
+            data.description = $("#description").val();
+            data._token = $('meta[name="csrf-token"]').attr('content');
+
+            console.log(data);
+            $.ajax({
+                url: 'api/create/gallery',
+                data: data,
+                type: 'post',
+                success: function () {
+//                    document.location.href = '/profile'
+                },
+                error: function () {
+                    alert("Error al crear galería");
+                }
+            })
+        });
     </script>
 @endsection

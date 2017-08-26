@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'profile', 'namespace
 
 
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'api', 'namespace' => 'API'], function(){
+    Route::post('/create/gallery', 'CreateController@createGallery');
 //    Route::post('image', 'AdminController@uploadImage');
 //    Route::post('images/delete/{id}', 'AdminController@deleteImage');
 });

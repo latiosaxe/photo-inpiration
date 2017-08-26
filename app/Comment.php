@@ -11,7 +11,6 @@ class Comment extends Model
     ];
     protected $table = 'comments';
 
-
     public function content(){
         return $this->belongsTo('App\Content');
     }
