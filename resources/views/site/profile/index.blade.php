@@ -71,23 +71,19 @@
                     @if($galleries)
                     @foreach($galleries as $gallery)
                         <div class="col-md-6">
-                            <div class="single-gallery">
-                                <div class="preview">
-{{--                                    <div class="image" style="background-image: url('{{ $gallery->cover }}')"></div>--}}
-                                    <div class="image" style="background-image: url('/assets/images/profile.png')"></div>
+                            <a href="/profile/gallery/{{ $gallery->id }}">
+                                <div class="single-gallery">
+                                    <div class="preview">
+    {{--                                    <div class="image" style="background-image: url('{{ $gallery->cover }}')"></div>--}}
+                                        <div class="image" style="background-image: url('/assets/images/profile.png')"></div>
+                                    </div>
+                                    <div class="name">
+                                        <p>{{ $gallery->name }}</p>
+                                        <span>{{ $gallery->photos }} photos</span>
+                                    </div>
+                                    <p>Comments @if($gallery->content) {{count( $gallery->content->comments )}} @else 0 @endif</p>
                                 </div>
-                                <div class="name">
-                                    <p>{{ $gallery->name }}</p>
-                                    <span>{{ $gallery->photos }} photos</span>
-                                </div>
-                            </div>
-                            <p>Comments</p>
-                            @if($gallery->content)
-                                @foreach($gallery->content->comments as $comment)
-                                    <p>{{ $comment->text }}</p>
-                                    <p>{{ $comment->user->username }}</p>
-                                @endforeach
-                            @endif
+                            </a>
                         </div>
                     @endforeach
                     @endif
@@ -150,7 +146,7 @@
                 data: data,
                 type: 'post',
                 success: function () {
-//                    document.location.href = '/profile'
+                    document.location.href = '/profile'
                 },
                 error: function () {
                     alert("Error al crear galería");

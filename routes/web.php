@@ -41,12 +41,15 @@ Route::group(['middleware' => ['web']], function(){
 
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'profile', 'namespace' => 'Profile'], function(){
     Route::get('/',          'UserController@profile');
+    Route::get('/gallery/{id}',[ 'as' => 'id', 'uses' => 'UserController@gallery']);
 //    Route::get('/',          'UserController@profile');
 });
 
 
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'api', 'namespace' => 'API'], function(){
     Route::post('/create/gallery', 'CreateController@createGallery');
+    Route::post('/create/comment', 'CreateController@createComment');
+    Route::post('/follow/user', 'CreateController@followUser');
 //    Route::post('image', 'AdminController@uploadImage');
 //    Route::post('images/delete/{id}', 'AdminController@deleteImage');
 });

@@ -383,3 +383,27 @@ hr{
 }
 
 
+.follow-status{
+    .followUser{
+        &.followed{
+            display: none;
+        }
+    }
+    &.following{
+        .followUser{
+            display: none;
+            &.followed{
+                display: block;
+            }
+        }
+    }
+}
+
+.comments_list{
+    padding: 0;
+    margin: 15px 0 0;
+    li{
+        list-style: none;
+        margin-bottom: 30px;
+    }
+}

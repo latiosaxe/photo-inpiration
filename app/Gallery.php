@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     protected $fillable = [
-        'id', 'user_id', 'name', 'description', 'active'
+        'id', 'user_id', 'name', 'description', 'active', 'slug'
     ];
     protected $table = 'galleries';
 
@@ -17,7 +17,6 @@ class Gallery extends Model
     public function photos(){
         return $this->hasMany('App\Gallery_Photo');
     }
-
 
     public function content(){
         return $this->hasOne('App\Content', 'type_id');
