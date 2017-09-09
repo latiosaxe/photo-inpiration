@@ -2,6 +2,7 @@
 @section('content')
 
     <div class="user profile">
+        @if($gallery->photos)
         <div class="gallery-preview">
             <ul>
                 @foreach($gallery->photos as $photo)
@@ -9,8 +10,9 @@
                 @endforeach
             </ul>
         </div>
+        @endif
 
-        <div class="content-element" data-content-id="{{ $gallery->content->id }}">
+        <div class="content-element" @if($gallery->content) data-content-id="{{ $gallery->content->id }}" @endif>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
